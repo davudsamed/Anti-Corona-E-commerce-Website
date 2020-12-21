@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Anti_Corona.Web</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+
+</head>
+<body>
+
+@await Html.PartialAsync("_header")
+@RenderBody()
+@await Html.PartialAsync("_footer")
+
+
+@RenderSection("Scripts", required: false)
+
+</body>
+</html>
