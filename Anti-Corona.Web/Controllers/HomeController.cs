@@ -22,8 +22,27 @@ namespace Anti_Corona.Web.Controllers
         {
             return View();
         }
+        public IActionResult Shop()
+        {
+            return View();
+        }
 
-        public IActionResult Privacy()
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult ShopDetails()
+        {
+            return View();
+        }
+
+        public IActionResult ShopingCard()
         {
             return View();
         }

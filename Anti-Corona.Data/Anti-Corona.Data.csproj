@@ -1,24 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Anti_Corona.Web</RootNamespace>
+    <RootNamespace>Anti_Corona.Data</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Home\Checkout.cshtml" />
-    <Content Remove="Views\Home\Contact.cshtml" />
-    <Content Remove="Views\Home\Shop.cshtml" />
-    <Content Remove="Views\Home\ShopDetails.cshtml" />
-    <Content Remove="Views\Home\ShopingCard.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Home\Checkout.cshtml" />
-    <None Include="Views\Home\Contact.cshtml" />
-    <None Include="Views\Home\Shop.cshtml" />
-    <None Include="Views\Home\ShopDetails.cshtml" />
-    <None Include="Views\Home\ShopingCard.cshtml" />
+    <Folder Include="Abstract\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,8 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Anti-Corona.Business\Anti-Corona.Business.csproj" />
-    <ProjectReference Include="..\Anti-Corona.Data\Anti-Corona.Data.csproj" />
+    <ProjectReference Include="..\Anti-Corona.Entity\Anti-Corona.Entity.csproj" />
   </ItemGroup>
 
 </Project>
