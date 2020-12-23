@@ -6,9 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Anti_Corona.Data.Concrete.EFCore
 {
-    public class AntiCoronaContext:DbContext
+    public class AntiCoronaContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
