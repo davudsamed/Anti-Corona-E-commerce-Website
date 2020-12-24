@@ -1,28 +1,10 @@
-﻿<!DOCTYPE html>
-<html>
-
-<body>
-    
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-
+﻿@model IndexViewModel
+@using System.Globalization
 <section class="hero">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>All Categories</span>
-                    </div>
-                    <ul>
-                        <li><a href="#">Maskeler</a></li>
-                        <li><a href="#">Dezenfektanlar</a></li>
-                        <li><a href="#">Eldivenler</a></li>
-                        <li><a href="#">Siperlikler</a></li>
-                    </ul>
-                </div>
+                @await Component.InvokeAsync("Categories")
             </div>
             <div class="col-lg-9">
                 <div class="hero__search">
@@ -60,32 +42,19 @@
     <div class="container">
         <div class="row">
             <div class="categories__slider owl-carousel">
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="~/img/categories/maske.jpg">
-                        <h5><a href="#">Maskeler</a></h5>
+                @foreach (var item in Model.categories)
+                {
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="/img/categories/@item.ImageUrl">
+                            <h5><a href="#">@item.Name</a></h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="~/img/categories/dezenfektan.jpg">
-                        <h5><a href="#">Dezenfektanlar</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="~/img/categories/eldiven.jpg">
-                        <h5><a href="#">Eldivenler</a></h5>
-                    </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg" data-setbg="~/img/categories/siperlik.jpg">
-                        <h5><a href="#">Siperlikler</a></h5>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
 </section>
 <!-- Categories Section End -->
-
 <!-- Featured Section Begin -->
 <section class="featured spad">
     <div class="container">
@@ -106,22 +75,24 @@
             </div>
         </div>
         <div class="row featured__filter">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                <div class="featured__item">
-                    <div class="featured__item__pic set-bg" data-setbg="/img/featured/siperlikUrun1.jpg">
-                        <ul class="featured__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="featured__item__text">
-                        <h6><a href="#">Crab Pool Security</a></h6>
-                        <h5>$30.00</h5>
+            @foreach (var item in Model.products)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                    <div class="featured__item">
+                        <div class="featured__item__pic set-bg" data-setbg="/img/featured/@item.Images[0].ImageUrl">
+                            <ul class="featured__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="featured__item__text">
+                            <h6><a href="#">@item.Title</a></h6>
+                            <h5>@Convert.ToDouble(item.Price).ToString("c")</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            }
         </div>
     </div>
 </section>
@@ -227,7 +198,6 @@
     </div>
 </section>
 
-
 @section Scripts{
     <script src="~/js/jquery-3.3.1.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
@@ -239,6 +209,3 @@
     <script src="~/js/main.js"></script>
 }
 
-</body>
-
-</html>

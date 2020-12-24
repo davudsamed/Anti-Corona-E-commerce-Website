@@ -13,6 +13,10 @@ using Anti_Corona.Web.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Anti_Corona.Data.Abstract;
+using Anti_Corona.Business.Abstract;
+using Anti_Corona.Business.Concrete;
+using System.Globalization;
 
 namespace Anti_Corona.Web
 {
@@ -29,12 +33,16 @@ namespace Anti_Corona.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<ACContext>(options => //Identity Context
+            //services.AddDbContext<AntiCoronaContext>(options =>
+            // options.UseSqlServer(
+            //     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ACContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<ACContext>().AddDefaultTokenProviders();
 
-            services.Configure<IdentityOptions>(options => {
+            services.Configure<IdentityOptions>(options =>
+            {
                 // password
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
@@ -53,7 +61,8 @@ namespace Anti_Corona.Web
                 options.SignIn.RequireConfirmedPhoneNumber = false;
             });
 
-            services.ConfigureApplicationCookie(options => {
+            services.ConfigureApplicationCookie(options =>
+            {
                 options.LoginPath = "/account/login";
                 options.LogoutPath = "/account/logout";
                 options.AccessDeniedPath = "/account/accessdenied";
@@ -66,12 +75,21 @@ namespace Anti_Corona.Web
                     SameSite = SameSiteMode.Strict
                 };
             });
-
+            //Dependency Injection
+            services.AddScoped<IProductRepository, EfCoreProductRepository>();
+            services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            var cultureInfo = new CultureInfo("tr-TR");
+            cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -91,6 +109,11 @@ namespace Anti_Corona.Web
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+           name: "shop",
+           pattern: "shop",
+           defaults: new { controller = "Home", action = "Shop" }
+        );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

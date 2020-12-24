@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Concrete\" />
+    <ProjectReference Include="..\Anti-Corona.Data\Anti-Corona.Data.csproj" />
   </ItemGroup>
 
 </Project>

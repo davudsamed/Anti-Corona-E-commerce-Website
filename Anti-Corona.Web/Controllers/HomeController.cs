@@ -6,21 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Anti_Corona.Web.Models;
+using Anti_Corona.Business.Abstract;
 
 namespace Anti_Corona.Web.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IProductService _productService;
+        private ICategoryService _categoryService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProductService productService,ICategoryService categoryService)
         {
             _logger = logger;
+            _productService = productService;
+            _categoryService = categoryService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            return View(new IndexViewModel()
+            {
+                products=_productService.GetAllProducts(),
+                categories=_categoryService.GetAllCategories()
+            });
         }
         public IActionResult Shop()
         {
