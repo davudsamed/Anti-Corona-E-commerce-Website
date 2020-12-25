@@ -12,7 +12,8 @@ namespace Anti_Corona.Business.Abstract
         void Update(Product entity);
         void Delete(Product entity);
         Product GetById(int id);
-        List<Product> GetAllProducts();
+        List<Product> GetAllProducts(string category);
+        List<Product> GetMostPopularProducts();
 
 
     }

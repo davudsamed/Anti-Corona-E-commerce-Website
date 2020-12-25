@@ -7,6 +7,7 @@ namespace Anti_Corona.Data.Abstract
 {
     public interface IProductRepository:IRepository<Product>
     {
-        List<Product> GetAllProducts();
+        List<Product> GetAllProducts(string category);
+        List<Product> GetMostPopularProducts();
     }
 }

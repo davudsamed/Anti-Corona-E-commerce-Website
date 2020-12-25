@@ -24,14 +24,19 @@ namespace Anti_Corona.Business.Concrete
             _productRepository.Delete(entity);
         }
 
-        public List<Product> GetAllProducts()
+        public List<Product> GetAllProducts(string category)
         {
-            return _productRepository.GetAllProducts();
+            return _productRepository.GetAllProducts(category);
         }
 
         public Product GetById(int id)
         {
             return _productRepository.GetById(id);
+        }
+
+        public List<Product> GetMostPopularProducts()
+        {
+            return _productRepository.GetMostPopularProducts();
         }
 
         public void Update(Product entity)

@@ -25,10 +25,10 @@ namespace Anti_Corona.Web.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Categories = _categoryService.GetAllCategories();
             return View(new IndexViewModel()
             {
-                products=_productService.GetAllProducts(),
-                categories=_categoryService.GetAllCategories()
+                products=_productService.GetAllProducts(""),
             });
         }
         public IActionResult Shop()
