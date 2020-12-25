@@ -109,10 +109,11 @@ namespace Anti_Corona.Web
 
             app.UseEndpoints(endpoints =>
             {
+        
                 endpoints.MapControllerRoute(
            name: "shop",
-           pattern: "shop",
-           defaults: new { controller = "Home", action = "Shop" }
+           pattern: "shop/{url?}",
+           defaults: new { controller = "Shop", action = "Index" }
         );
                 endpoints.MapControllerRoute(
                     name: "default",

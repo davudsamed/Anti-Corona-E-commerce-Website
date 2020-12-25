@@ -8,7 +8,7 @@ namespace Anti_Corona.Web.Models
 {
     public class IndexViewModel
     {
-        public List<Product> products { get; set; }
+        public List<Anti_Corona.Entity.Product> products { get; set; }
         public List<Category> categories { get; set; }
 
     }
