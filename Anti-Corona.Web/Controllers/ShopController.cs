@@ -41,6 +41,21 @@ namespace Anti_Corona.Web.Controllers
                  
             });
         }
+        public IActionResult Details(int id)
+        {
+            var product = _productService.GetProductDetails(id);
+            return View(new ProductDetailsViewModel()
+            {
+                Comments = product.Comments,
+                Images = product.Images,
+                Description=product.Description,
+                Price= (double)product.Price,
+                Stock=product.Stock,
+                Title=product.Title
+
+            }) ;
+        }
+
     }
 }
 

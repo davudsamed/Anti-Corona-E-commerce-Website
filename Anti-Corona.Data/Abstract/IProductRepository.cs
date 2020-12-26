@@ -5,9 +5,13 @@ using System.Text;
 
 namespace Anti_Corona.Data.Abstract
 {
+
     public interface IProductRepository:IRepository<Product>
     {
         List<Product> GetAllProducts(string category);
         List<Product> GetMostPopularProducts();
+        Product GetProductDetails(int id);
+            
     }
+    
 }
