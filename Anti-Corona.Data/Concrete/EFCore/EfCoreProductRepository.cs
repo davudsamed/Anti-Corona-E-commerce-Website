@@ -33,5 +33,13 @@ namespace Anti_Corona.Data.Concrete.EFCore
                 return context.Products.Include(i => i.Category).Include(i=>i.Images).OrderBy(i => i.Stock).Take(3).ToList();
             }
         }
+
+        public Product GetProductDetails(int id)
+        {
+            using (var context = new AntiCoronaContext())
+            {
+                return context.Products.Include(i => i.Category).Include(i => i.Comments).Include(i => i.Images).FirstOrDefault(p => p.ProductId == id);
+            }
+        }
     }
 }
