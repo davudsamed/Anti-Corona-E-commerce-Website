@@ -141,6 +141,9 @@ namespace Anti_Corona.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -170,6 +173,7 @@ namespace Anti_Corona.Data.Migrations
                         {
                             ProductId = 1,
                             CategoryId = 1,
+                            Date = new DateTime(2020, 12, 27, 13, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Güzel maske",
                             IsHomePage = true,
                             IsOnSale = true,
@@ -181,6 +185,7 @@ namespace Anti_Corona.Data.Migrations
                         {
                             ProductId = 2,
                             CategoryId = 1,
+                            Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Güzel maske1",
                             IsHomePage = true,
                             IsOnSale = true,

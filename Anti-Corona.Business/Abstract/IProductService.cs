@@ -14,7 +14,10 @@ namespace Anti_Corona.Business.Abstract
         Product GetById(int id);
         List<Product> GetAllProducts(string category);
         List<Product> GetMostPopularProducts();
+        List<Product> GetRelatedProducts();
         Product GetProductDetails(int id);
+
+        List<Product> IsHomePage();
 
     }
 }

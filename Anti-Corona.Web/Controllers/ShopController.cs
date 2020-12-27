@@ -23,25 +23,47 @@ namespace Anti_Corona.Web.Controllers
             ViewBag.Categories = _categoryService.GetAllCategories();
             return View(new ShopViewModel()
             {
-                 mostPopularProducts= _productService.GetMostPopularProducts().Select(i=> new PopularProduct()
+                 mostPopularProducts= _productService.GetMostPopularProducts().Select(i=> new PopularProductModel()
                  {
                      CategoryName=i.Category.Name,
                      Title=i.Title,
                      Price= (double)i.Price,
-                     ImageUrl=i.Images[0].ImageUrl
+                     ImageUrl=i.Images[0].ImageUrl,
+                     ProductId = i.ProductId
 
                  }).ToList(),
-                 products=_productService.GetAllProducts(url).Select(i=> new Product()
+                 products=_productService.GetAllProducts(url).Select(i=> new ProductModel()
                  {
                      Price= (double)i.Price,
                      Title=i.Title,
-                     ImageUrl=i.Images[0].ImageUrl
+                     ImageUrl=i.Images[0].ImageUrl,
+                     ProductId = i.ProductId
                      
                  }).ToList(),
                  
             });
         }
         public IActionResult Details(int id)
+        {
+            ViewBag.RelatedProducts = _productService.GetRelatedProducts();
+            var product = _productService.GetProductDetails(id);
+            return View(new ProductDetailsViewModel()
+            {
+                Comments = product.Comments,
+                Images = product.Images,
+                Description = product.Description,
+                Price = (double)product.Price,
+                Stock = product.Stock,
+                Title = product.Title
+                
+
+            });
+        }
+
+    }
+}
+
+/* public IActionResult Details(int id)
         {
             var product = _productService.GetProductDetails(id);
             return View(new ProductDetailsViewModel()
@@ -54,8 +76,5 @@ namespace Anti_Corona.Web.Controllers
                 Title=product.Title
 
             }) ;
-        }
-
-    }
-}
+        }*/
 

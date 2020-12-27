@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\img\banner\" />
     <Folder Include="wwwroot\img\latest-product\" />
     <Folder Include="wwwroot\img\product\" />
   </ItemGroup>

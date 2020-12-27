@@ -10,8 +10,10 @@ namespace Anti_Corona.Data.Abstract
     {
         List<Product> GetAllProducts(string category);
         List<Product> GetMostPopularProducts();
+        List<Product> GetRelatedProducts();
         Product GetProductDetails(int id);
-            
+        List<Product> GetHomePageProducts();
+
     }
     
 }

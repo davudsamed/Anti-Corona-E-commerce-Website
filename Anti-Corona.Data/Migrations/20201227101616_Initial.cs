@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Anti_Corona.Data.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -32,6 +33,7 @@ namespace Anti_Corona.Data.Migrations
                     Stock = table.Column<int>(nullable: false),
                     IsHomePage = table.Column<bool>(nullable: false),
                     IsOnSale = table.Column<bool>(nullable: false),
+                    Date = table.Column<DateTime>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -98,13 +100,13 @@ namespace Anti_Corona.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "CategoryId", "Description", "IsHomePage", "IsOnSale", "Price", "Stock", "Title" },
-                values: new object[] { 1, 1, "Güzel maske", true, true, 100.0, 100, "Maske" });
+                columns: new[] { "ProductId", "CategoryId", "Date", "Description", "IsHomePage", "IsOnSale", "Price", "Stock", "Title" },
+                values: new object[] { 1, 1, new DateTime(2020, 12, 27, 13, 30, 50, 0, DateTimeKind.Unspecified), "Güzel maske", true, true, 100.0, 100, "Maske" });
 
             migrationBuilder.InsertData(
                 table: "Products",
-                columns: new[] { "ProductId", "CategoryId", "Description", "IsHomePage", "IsOnSale", "Price", "Stock", "Title" },
-                values: new object[] { 2, 1, "Güzel maske1", true, true, 200.0, 200, "Maske1" });
+                columns: new[] { "ProductId", "CategoryId", "Date", "Description", "IsHomePage", "IsOnSale", "Price", "Stock", "Title" },
+                values: new object[] { 2, 1, new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified), "Güzel maske1", true, true, 200.0, 200, "Maske1" });
 
             migrationBuilder.InsertData(
                 table: "Comments",

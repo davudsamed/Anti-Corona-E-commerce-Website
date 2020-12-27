@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Anti_Corona.Web.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initiall : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

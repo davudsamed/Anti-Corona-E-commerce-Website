@@ -39,6 +39,11 @@ namespace Anti_Corona.Business.Concrete
             return _productRepository.GetMostPopularProducts();
         }
 
+        public List<Product> GetRelatedProducts()
+        {
+            return _productRepository.GetRelatedProducts();
+        }
+
         public void Update(Product entity)
         {
             _productRepository.Update(entity);
@@ -47,5 +52,11 @@ namespace Anti_Corona.Business.Concrete
         {         
             return _productRepository.GetProductDetails(id);
         }
+
+        public List<Product> IsHomePage()
+        {
+            return _productRepository.GetHomePageProducts();
+        }
+
     }
 }

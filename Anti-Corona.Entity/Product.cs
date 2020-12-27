@@ -14,6 +14,7 @@ namespace Anti_Corona.Entity
         public int Stock { get; set; }
         public bool IsHomePage { get; set; }
         public bool IsOnSale { get; set; }
+        public DateTime Date { get; set; }
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }

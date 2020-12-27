@@ -12,15 +12,15 @@ namespace Anti_Corona.Data.Concrete.EFCore
     {
         public List<Product> GetAllProducts(string category)
         {
-            using(var context=new AntiCoronaContext())
+            using (var context = new AntiCoronaContext())
             {
                 var products = context.Products.Include(i => i.Category).Include(i => i.Images).AsQueryable();
 
                 if (!string.IsNullOrEmpty(category))
                 {
 
-                    products = products.Include(i => i.Category).Include(i => i.Images).Where(i=>i.Category.Name==category);
-                           
+                    products = products.Include(i => i.Category).Include(i => i.Images).Where(i => i.Category.Name == category);
+
                 }
                 return products.ToList();
             }
@@ -28,9 +28,17 @@ namespace Anti_Corona.Data.Concrete.EFCore
 
         public List<Product> GetMostPopularProducts()
         {
-            using (var context=new AntiCoronaContext())
+            using (var context = new AntiCoronaContext())
             {
-                return context.Products.Include(i => i.Category).Include(i=>i.Images).OrderBy(i => i.Stock).Take(3).ToList();
+                return context.Products.Include(i => i.Category).Include(i => i.Images).OrderBy(i => i.Stock).Take(3).ToList();
+            }
+        }
+
+        public List<Product> GetRelatedProducts()
+        {
+            using (var context = new AntiCoronaContext())
+            {
+                return context.Products.Include(i => i.Category).Include(i => i.Images).OrderByDescending(i => i.Date).Take(4).ToList();
             }
         }
 
@@ -39,6 +47,14 @@ namespace Anti_Corona.Data.Concrete.EFCore
             using (var context = new AntiCoronaContext())
             {
                 return context.Products.Include(i => i.Category).Include(i => i.Comments).Include(i => i.Images).FirstOrDefault(p => p.ProductId == id);
+            }
+        }
+
+        public List<Product> GetHomePageProducts()
+        {
+            using (var context = new AntiCoronaContext())
+            {
+                return context.Products.Include(i => i.Images).Where(i => i.IsHomePage == true).ToList();
             }
         }
     }

@@ -28,12 +28,8 @@ namespace Anti_Corona.Web.Controllers
             ViewBag.Categories = _categoryService.GetAllCategories();
             return View(new IndexViewModel()
             {
-                products=_productService.GetAllProducts(""),
+                products=_productService.IsHomePage()
             });
-        }
-        public IActionResult Shop()
-        {
-            return View();
         }
 
         public IActionResult Checkout()
@@ -46,10 +42,6 @@ namespace Anti_Corona.Web.Controllers
             return View();
         }
 
-        public IActionResult ShopDetails()
-        {
-            return View();
-        }
 
         public IActionResult ShopingCard()
         {
