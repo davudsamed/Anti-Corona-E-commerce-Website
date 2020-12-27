@@ -27,9 +27,23 @@
                                 <li><a href="#">İngilizce</a></li>
                             </ul>
                         </div>
-                        <div class="header__top__right__auth">
-                            <a href="#"><i class="fa fa-user"></i>Giriş</a>
-                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="header__top__right__auth mr-2">
+                                <a href="/account/logout"><i class="fa fa-user"></i>Çıkış Yap</a>
+                            </div>
+                        }
+                        else
+
+                        {
+                            <div class="header__top__right__auth mr-2">
+                                <a href="/account/login"><i class="fa fa-user"></i>Giriş</a>
+                            </div>
+                            <div class="header__top__right__auth">
+                                <a href="/account/register"><i class="fa fa-user"></i>Kayıt Ol</a>
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>
