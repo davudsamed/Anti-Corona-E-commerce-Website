@@ -57,7 +57,7 @@ namespace Anti_Corona.Web
 
                 // options.User.AllowedUserNameCharacters = "";
                 options.User.RequireUniqueEmail = true;
-                options.SignIn.RequireConfirmedEmail = true;
+                options.SignIn.RequireConfirmedEmail = false;
                 options.SignIn.RequireConfirmedPhoneNumber = false;
             });
 
@@ -71,7 +71,7 @@ namespace Anti_Corona.Web
                 options.Cookie = new CookieBuilder
                 {
                     HttpOnly = true,
-                    Name = ".ShopApp.Security.Cookie",
+                    Name = ".Anti-Corona.Security.Cookie",
                     SameSite = SameSiteMode.Strict
                 };
             });
@@ -104,7 +104,7 @@ namespace Anti_Corona.Web
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -25,8 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\img\dezenfektanlar\" />
+    <Folder Include="wwwroot\img\Eldiven\" />
     <Folder Include="wwwroot\img\latest-product\" />
     <Folder Include="wwwroot\img\product\" />
+    <Folder Include="wwwroot\img\siperlik\" />
   </ItemGroup>
 
 </Project>
