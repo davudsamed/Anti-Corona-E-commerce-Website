@@ -19,6 +19,29 @@ namespace Anti_Corona.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Anti_Corona.Entity.CartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CartItems");
+                });
+
             modelBuilder.Entity("Anti_Corona.Entity.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -407,7 +430,7 @@ namespace Anti_Corona.Data.Migrations
                             IsOnSale = true,
                             Price = 200.0,
                             Stock = 200,
-                            Title = "3 katmanlı, MeltBlown + Spunbond cilde dost katmanlar,Tek katmanda değil her katmanda koruma,Tek katmanda değil her katmanda koruma"
+                            Title = "Happy Yumuşak Elastik Kulaklı 3 Katlı Telli Mavi Cerrahi Maske 100 Lü"
                         },
                         new
                         {
@@ -505,6 +528,15 @@ namespace Anti_Corona.Data.Migrations
                             Stock = 200,
                             Title = "Medizer Novid Siyah Gözlüklü Yüz Koruyucu Siperli"
                         });
+                });
+
+            modelBuilder.Entity("Anti_Corona.Entity.CartItem", b =>
+                {
+                    b.HasOne("Anti_Corona.Entity.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Anti_Corona.Entity.Comment", b =>

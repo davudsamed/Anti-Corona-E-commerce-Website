@@ -78,8 +78,12 @@ namespace Anti_Corona.Web
             //Dependency Injection
             services.AddScoped<IProductRepository, EfCoreProductRepository>();
             services.AddScoped<IProductService, ProductManager>();
+
             services.AddScoped<ICategoryRepository, EfCoreCategoryRepository>();
             services.AddScoped<ICategoryService, CategoryManager>();
+
+            services.AddScoped<ICartRepository, EfCoreCartRepository>();
+            services.AddScoped<ICartService, CartManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

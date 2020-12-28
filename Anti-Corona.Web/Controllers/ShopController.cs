@@ -49,13 +49,13 @@ namespace Anti_Corona.Web.Controllers
             var product = _productService.GetProductDetails(id);
             return View(new ProductDetailsViewModel()
             {
+                ProductId=product.ProductId,
                 Comments = product.Comments,
                 Images = product.Images,
                 Description = product.Description,
                 Price = (double)product.Price,
                 Stock = product.Stock,
                 Title = product.Title
-                
 
             });
         }

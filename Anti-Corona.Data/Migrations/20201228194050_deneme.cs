@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Anti_Corona.Data.Migrations
 {
-    public partial class Initial : Migration
+    public partial class deneme : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,6 +44,27 @@ namespace Anti_Corona.Data.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CartItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Quantity = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
+                    ProductId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CartItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CartItems_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "ProductId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -105,7 +126,7 @@ namespace Anti_Corona.Data.Migrations
                 {
                     { 1, 1, new DateTime(2020, 12, 27, 13, 30, 50, 0, DateTimeKind.Unspecified), "Hayat Kimya olarak, hijyen ve temizlik kategorilerindeki 33 yıllık deneyimimizi Evony markamızla cerrahi maske kategorisine taşıyoruz. TSE Tip2R ve TSE Güvenli Üretim sertifikalı Evony Maske %99 a kadar bakteri filtrasyonu sağlamaktadır. 3 katmanlı, Melt Blown+ Spunbond cilde dost katmanlar. Tek katmanda değil her katmanda koruma. Pamuksu Yumuşak katmanlarla saatlerce rahat kullanım. Acıtmayan Yumuşak Elastik Kulaklarıyla koruma ve konforu bir arada. Yüze tam uyumlu Burun Teli. Alerji Yapmaz. Latex İçermez. Paraben içermez. Naylon İçermez. CE sertifikalı. TSE Tip2R , EN14683, ISO13485, TSE Güvenli ", true, true, 100.0, 100, "Evony Yumuşak Elastik Kulaklı Maske 100 Adet" },
                     { 2, 1, new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified), "1 Kutuda 50 adet bulunmaktadır. 2 Kutu Gönderilecektir.Hava Geçiren Yapı.Yumuşak ve Ayarlanabilir, Tahriş etmez, Rahat takılır.Fiberglass ve Lateks İçermiyor.Filtreli, Üç katlı, tek kullanımlık, lastikli, 3 kıvrımlı.Polipropilen / Non-Woven.Yuvarlak lastikli ultrasonik dikişlidir.Kullanımda rahatlık.Lateks içermez.Hava geçirgen, kolay nefes almayı sağlayan RC cerrahi maske non woven kumaştan üretilmiştir.Gipe lastik kullanılan bu maske tek kullanımlık olup hijyenik ve CE'li dir.Yüze tam uyumludur.", true, true, 200.0, 200, "Smask Cerrahi Telli 3 Katlı Nonwoven Filtreli Maske 50'li 2 Adet" },
-                    { 3, 1, new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified), "Happy Yumuşak Elastik Kulaklı 3 Katlı Telli Mavi Cerrahi Maske 50 li x 2 Adet,Acıtmayan yumuşak elastik kulaklarıyla koruma ve konforu bir arada,Yüze tam uyumlu burun teli,Alerji Yapmaz,Latex İçermez,Klor içermez,Naylon İçermez,Ce Sertifikalı,FDA , ISO 13485 ", true, true, 200.0, 200, "3 katmanlı, MeltBlown + Spunbond cilde dost katmanlar,Tek katmanda değil her katmanda koruma,Tek katmanda değil her katmanda koruma" },
+                    { 3, 1, new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified), "Happy Yumuşak Elastik Kulaklı 3 Katlı Telli Mavi Cerrahi Maske 50 li x 2 Adet,Acıtmayan yumuşak elastik kulaklarıyla koruma ve konforu bir arada,Yüze tam uyumlu burun teli,Alerji Yapmaz,Latex İçermez,Klor içermez,Naylon İçermez,Ce Sertifikalı,FDA , ISO 13485 ", true, true, 200.0, 200, "Happy Yumuşak Elastik Kulaklı 3 Katlı Telli Mavi Cerrahi Maske 100 Lü" },
                     { 7, 2, new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified), "Beybi tek kullanımlık eldiven, elin şeklini alarak kolay hareket imkanı sağlar. Tek kullanımlık eldiven ile yemekler hijyenik bir şekilde hazırlanır. Hem temizlik hem de yemek yapımı sırasında ellerin kurumasını, kirlenmesini ve tahriş olmasını önler.Tek kullanımlıkMiktar : Kutu içerisinde 100 AdetRenk : Beyaz", true, true, 200.0, 200, "Beybi Latex Pudralı Çok Amaçlı Kullan At Eldiven Lateks 100' lü (L) Large / Büyük" },
                     { 8, 2, new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified), "Pudrasız Lateks Eldiven (Large)- Pudrasız Lateks Eldivenler, Hijyen Gerektiren Tüm Ortamlarda, Elle Bulaşması Muhtemel Mikrop, Virüs Ve Bakterilere Karşı Koruyucudur. - Doğal Lateks Hammaddeden Üretilmiştir. - Giymesi Ve Çıkartması Kolaydır. - Yumuşak Ve Elastik Yapısı Sayesinde Elinize Tam Oturur. - Hastaneler, Diş Klinikleri, Veterinerler, Laboratuvarlar, İlaç Sektörü, Deterjan Ve Temizlik, Kozmetik Gibi Çok Çeşitli Endüstrilerde Kullanım İçin İdealdir. - Beyaz Renklidir. - Yuvarlak Hatlı Manşeti Sayesinde Kolayca Giyilir Ve Çıkartılır. Özellikle Hastane Kullanımlarında Çok Hızlı Giyilip Çıkartılabilir.", true, true, 200.0, 200, "Pudrasız Lateks Eldiven (Large)" },
                     { 4, 3, new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified), "Sağlık bakanlığı tarafından Ruhsatnameli, ISO ve CE sertifikalı, Msds Raporu bulunmaktadır. Toplamda % 70 Alkol oranına sahiptir. (% 58 Ethil % 12 İzopropil).Ürüne kullanım esnasında kokusundan dolayı rahatsız etmemesi amacı ile % 002 esans eklenerek herkes tarafından kullanılabilinir hale getirilmiştir.Elde hızlıca kurumaktadır.", true, true, 93.0, 200, "Dermosept Handplus El Dezenfektanı 5000 ml" },
@@ -169,6 +190,11 @@ namespace Anti_Corona.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_CartItems_ProductId",
+                table: "CartItems",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Comments_ProductId",
                 table: "Comments",
                 column: "ProductId");
@@ -186,6 +212,9 @@ namespace Anti_Corona.Data.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "CartItems");
+
             migrationBuilder.DropTable(
                 name: "Comments");
 

@@ -33,7 +33,7 @@
                     <div class="product__details__pic__slider owl-carousel">
                         @foreach (var image in Model.Images)
                         {
-                            <img data-imgbigurl="/img/product/details/product-details-2.jpg"
+                            <img data-imgbigurl="/img/featured/@image.ImageUrl"
                                  src="~/img/featured/@image.ImageUrl" alt="">
                         }
 
@@ -56,15 +56,19 @@
                     <p>
                         @Model.Description
                     </p>
-                    <div class="product__details__quantity">
-                        <div class="quantity">
-                            <div class="pro-qty">
-                                <input type="text" value="1">
+                    <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="hidden" name="productId" value="@Model.ProductId" />
+                                    <input type="text" min="1" name="quantity" value="1" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <a href="#" class="primary-btn">SEPETE EKLE</a>
-                    <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <button type="submit" class="primary-btn">SEPETE EKLE</button>
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                    </form>
+
                     <ul>
                         <li><b>Stok Durumu</b> <span>@Model.Stock</span></li>
                         <li><b>Kargo</b> <span>1 Gün İçinde Kargo</span></li>

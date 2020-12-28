@@ -56,8 +56,7 @@ namespace Anti_Corona.Data.Concrete.EFCore
                 {
                     ProductId = 3,
                     CategoryId = 1,
-                    Title = "3 katmanlı, MeltBlown + Spunbond cilde dost katmanlar,Tek katmanda değil her katmanda koruma," +
-                "Tek katmanda değil her katmanda koruma",
+                    Title = "Happy Yumuşak Elastik Kulaklı 3 Katlı Telli Mavi Cerrahi Maske 100 Lü",
                     Description = "Happy Yumuşak Elastik Kulaklı 3 Katlı Telli Mavi Cerrahi Maske 50 li x 2 Adet," +
                 "Acıtmayan yumuşak elastik kulaklarıyla koruma ve konforu bir arada,Yüze tam uyumlu burun teli,Alerji Yapmaz,Latex İçermez,Klor " +
                 "içermez,Naylon İçermez,Ce Sertifikalı,FDA , ISO 13485 ",
@@ -255,7 +254,6 @@ namespace Anti_Corona.Data.Concrete.EFCore
 
                 new Image() { ImageId = 35, ProductId = 11, ImageUrl = "siperlik3.1.jpg" },
                 new Image() { ImageId = 36, ProductId = 11, ImageUrl = "siperlik3.2.jpg" }
-
 
         );
 
