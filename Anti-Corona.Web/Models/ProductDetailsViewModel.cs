@@ -9,6 +9,7 @@ namespace Anti_Corona.Web.Models
 {
     public class ProductDetailsViewModel
     {
+        public int ProductId { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }

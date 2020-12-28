@@ -20,6 +20,7 @@ namespace Anti_Corona.Web.Controllers
         }
         public IActionResult Login(string ReturnUrl = null)
         {
+            
             return View(new LoginModel()
             {
                 ReturnUrl = ReturnUrl
