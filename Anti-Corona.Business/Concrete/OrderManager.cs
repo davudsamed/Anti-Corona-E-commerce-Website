@@ -34,26 +34,13 @@ namespace Anti_Corona.Business.Concrete
             return _orderRepository.GetOrders(userId);
         }
 
-        public void AddToOrder(string userId, int productId, int quantity)
+        public void AddToOrder(OrderItem orderItem)
         {
-            if (userId != null)
+            if (orderItem!=null)
             {
-                var orderItems = GetOrders(userId);
-                if (orderItems != null)
-                {
-
-                }
-                else
-                {
-                    _orderRepository.Create(new OrderItem()
-                    {
-                        ProductId = productId,
-                        Quantity = quantity,
-                        UserId = userId
-                    });
-                }
-
+                _orderRepository.Create(orderItem);
             }
         }
+     
     }
 }

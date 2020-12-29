@@ -13,10 +13,12 @@ namespace Anti_Corona.Web.Controllers
     public class CartController : Controller
     {
         private ICartService _cartService;
+        private IOrderService _orderService;
         private UserManager<User> _userManager;
-        public CartController(ICartService cartService, UserManager<User> userManager)
+        public CartController(ICartService cartService, IOrderService orderservice,UserManager<User> userManager)
         {
             _cartService = cartService;
+            _orderService = orderservice;
             _userManager = userManager;
         }
         public IActionResult Index()
@@ -43,6 +45,7 @@ namespace Anti_Corona.Web.Controllers
         {
             var userId = _userManager.GetUserId(User);
             _cartService.AddToCart(userId, productId, quantity);
+            
             return RedirectToAction("Index");
         }
         [HttpPost]

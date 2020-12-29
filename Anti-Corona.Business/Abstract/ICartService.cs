@@ -14,5 +14,6 @@ namespace Anti_Corona.Business.Abstract
         List<CartItem> GetCartItems(string userId);
         void AddToCart(string userId, int productId, int quantity);
         void DeleteFromCart(string userId, int productId);
+        void ClearCart(string userId);
     }
 }
