@@ -11,6 +11,6 @@ namespace Anti_Corona.Business.Abstract
         void Update(OrderItem entity);
         void Delete(OrderItem entity);
         List<OrderItem> GetOrders(string userId);
-        void AddToOrder(string userId, int productId, int quantity);
+        void AddToOrder(OrderItem orderItem);
     }
 }

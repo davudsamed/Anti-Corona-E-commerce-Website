@@ -1,4 +1,5 @@
-﻿@await Html.PartialAsync("_header2")
+﻿@model OrderItemsViewModel
+@await Html.PartialAsync("_header2")
 <section class="breadcrumb-section set-bg" data-setbg="/img/banner/CoronaFoto.jpg">
     <div class="container">
         <div class="row">
@@ -20,65 +21,66 @@
     <div class="container">
         <div class="checkout__form">
             <h4>Fatura Detayları</h4>
-            <form action="#">
+            <form method="post" asp-controller="Order" asp-action="Checkout">
                 <div class="row">
-                    <div class="col-lg-8 col-md-6">
+                    <div class="col-lg-7 col-md-6">
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>İsim<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="FirstName">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Soyisim<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="LastName">
                                 </div>
                             </div>
                         </div>
                         <div class="checkout__input">
                             <p>Adres<span>*</span></p>
-                            <textarea class="form-control" placeholder="Mahalle, Sokak, Apartman, Daire..." rows="3"></textarea>
+                            <textarea class="form-control" placeholder="Mahalle, Sokak, Apartman, Daire..." rows="3" name="Address"></textarea>
                         </div>
                         <div class="checkout__input">
                             <p>Şehir<span>*</span></p>
-                            <input type="text">
+                            <input type="text" name="City">
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Telefon<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="Phone">
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Email<span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="Email">
                                 </div>
                             </div>
                         </div>
                         <div class="checkout__input">
                             <p>Sipariş Notları<span>*</span></p>
-                            <input type="text" placeholder="Siparişinizle ilgili notlar, teslimat için özel notlar..">
+                            <input type="text" placeholder="Siparişinizle ilgili notlar, teslimat için özel notlar.." name="Note">
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-5 col-md-6">
                         <div class="checkout__order">
                             <h4>Siparişiniz</h4>
                             <div class="checkout__order__products">Ürünler <span>Toplam</span></div>
                             <ul>
-                                <li>Vegetable’s Package <span>$75.99</span></li>
+                                @foreach (var item in Model.orderItems)
+                                {
+                                    <li>@(item.Title.Substring(0, 35)+"...") (@item.Quantity) <span>@item.Price.ToString("c")</span></li>
+                                }
                             </ul>
-                            <div class="checkout__order__subtotal">Ara Toplam <span>$750.99</span></div>
-                            <div class="checkout__order__total">Toplam <span>$750.99</span></div>
+                            <div class="checkout__order__total">Toplam <span>@Model.total.ToString("c")</span></div>
                             <div class="checkout__input__checkbox">
-                               
-                            <button type="submit" class="site-btn">Sipariş Ver</button>
+                                <button type="submit" class="site-btn">Sipariş Ver</button>
+                            </div>
                         </div>
                     </div>
-                </div>
             </form>
         </div>
     </div>

@@ -19,7 +19,7 @@ namespace Anti_Corona.Data.Concrete.EFCore
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                @"Data Source=TAZEKAN\SQLEXPRESS;Initial Catalog=AntiCorona;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                @"Data Source=DESKTOP-3EAVUHK\SQLEXPRESS;Initial Catalog=AntiCorona;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

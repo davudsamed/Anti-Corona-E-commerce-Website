@@ -16,7 +16,6 @@ namespace Anti_Corona.Data.Concrete.EFCore
             {
                 var orders = context.OrderItems
                     .Include(i => i.Product).AsQueryable();
-                //userid geliyorsa
                 if (!string.IsNullOrEmpty(userId))
                 {
                     orders = orders.Where(i => i.UserId == userId);

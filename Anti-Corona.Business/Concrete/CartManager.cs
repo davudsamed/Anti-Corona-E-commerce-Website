@@ -55,6 +55,11 @@ namespace Anti_Corona.Business.Concrete
             }
         }
 
+        public void ClearCart(string userId)
+        {
+            _cartRepository.ClearCart(userId);
+        }
+
         public void Create(CartItem entity)
         {
             _cartRepository.Create(entity);
@@ -80,11 +85,6 @@ namespace Anti_Corona.Business.Concrete
         public List<CartItem> GetCartItems(string userId)
         {
             return _cartRepository.GetCartItems(userId);
-        }
-
-        public bool IsCartItems(string userId)
-        {
-            throw new NotImplementedException();
         }
 
         public void Update(CartItem entity)

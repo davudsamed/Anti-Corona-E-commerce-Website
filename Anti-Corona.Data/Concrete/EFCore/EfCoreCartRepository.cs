@@ -10,6 +10,15 @@ namespace Anti_Corona.Data.Concrete.EFCore
 {
     public class EfCoreCartRepository : EfCoreGenericRepository<CartItem, AntiCoronaContext>, ICartRepository
     {
+        public void ClearCart(string userId)
+        {
+            using (var context = new AntiCoronaContext())
+            {
+                var cmd = @"delete from CartItems where UserId=@p0 ";
+                context.Database.ExecuteSqlRaw(cmd, userId);
+            }
+        }
+
         public List<CartItem> GetCartItems(string userId)
         {
             using (var context=new AntiCoronaContext()) 
