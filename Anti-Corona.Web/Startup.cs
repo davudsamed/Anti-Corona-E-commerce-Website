@@ -84,6 +84,9 @@ namespace Anti_Corona.Web
 
             services.AddScoped<ICartRepository, EfCoreCartRepository>();
             services.AddScoped<ICartService, CartManager>();
+
+            services.AddScoped<IOrderRepository, EfCoreOrderRepository>();
+            services.AddScoped<IOrderService, OrderManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
