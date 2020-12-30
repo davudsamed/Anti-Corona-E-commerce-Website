@@ -13,6 +13,7 @@ namespace Anti_Corona.Data.Abstract
         List<Product> GetRelatedProducts();
         Product GetProductDetails(int id);
         List<Product> GetHomePageProducts();
+        int GetProductCount();
 
     }
     

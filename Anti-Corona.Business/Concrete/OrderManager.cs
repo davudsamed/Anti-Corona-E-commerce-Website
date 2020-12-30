@@ -41,6 +41,15 @@ namespace Anti_Corona.Business.Concrete
                 _orderRepository.Create(orderItem);
             }
         }
-     
+
+        public double GetTotalGain()
+        {
+            return _orderRepository.GetTotalGain();
+        }
+
+        public List<OrderItem> GetLastSalersProduct()
+        {
+            return _orderRepository.GetLastSalersProduct();
+        }
     }
 }

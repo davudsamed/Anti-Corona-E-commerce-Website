@@ -1,0 +1,71 @@
+﻿@model AdminDashboardViewModel
+@{ Layout = "_LayoutAdmin"; }
+<div class="container-fluid">
+    <div class="row dash-row">
+        <div class="col-xl-4">
+            <div class="stats stats-primary">
+                <h3 class="stats-title"> Siteye Kayıtlı Kullanıcı Sayısı </h3>
+                <div class="stats-content">
+                    <div class="stats-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="stats-data">
+                        <div class="stats-number">@Model.UserCount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="stats stats-success ">
+                <h3 class="stats-title"> Toplam Gelir </h3>
+                <div class="stats-content">
+                    <div class="stats-icon">
+                        <i class="fas fa-cart-arrow-down"></i>
+                    </div>
+                    <div class="stats-data">
+                        <div class="stats-number">@Model.Revenue.ToString("c")</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="stats stats-danger">
+                <h3 class="stats-title"> Sitedeki Ürün Sayısı </h3>
+                <div class="stats-content">
+                    <div class="stats-icon">
+                        <i class="fa fa-shopping-basket" ></i>
+                    </div>
+                    <div class="stats-data">
+                        <div class="stats-number">@Model.ProductCount</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card easion-card">
+                <div class="card-header">
+                    <div class="easion-card-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="easion-card-title"> Son Satılan Ürünler </div>
+                </div>
+                <div class="card-body ">
+                    <div class="notifications">
+                        @foreach (var item in Model.lastSalersProduct)
+                        {
+                            <a href="#!" class="notification">
+                                <div class="notification-icon">
+                                    <i class="fas fa-inbox"></i>
+                                </div>
+                                <div class="notification-text">@item.Title</div>
+                                <span class="notification-time">@item.Price.ToString("c") (@item.Quantity)</span>
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

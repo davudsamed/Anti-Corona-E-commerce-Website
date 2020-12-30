@@ -36,7 +36,9 @@ namespace Anti_Corona.Web.Identity
                     Email = email1,
                     FirstName = "Ahmet Selim",
                     LastName = "Öztürk",
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    Address="Sakarya Üniversitesi"
+                    
                 };
                 var admin2 = new User()
                 {
@@ -44,7 +46,9 @@ namespace Anti_Corona.Web.Identity
                     Email = email2,
                     FirstName = "Davud Samet",
                     LastName = "Tombul",
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    Address = "Sakarya Üniversitesi"
+
                 };
                 var admin3 = new User()
                 {
@@ -52,7 +56,8 @@ namespace Anti_Corona.Web.Identity
                     Email = email3,
                     FirstName = "Özgür Ulaş",
                     LastName = "Karabulut",
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    Address = "Sakarya Üniversitesi"
                 };
          
                 var adminResult1 = await userManager.CreateAsync(admin1, password1);
