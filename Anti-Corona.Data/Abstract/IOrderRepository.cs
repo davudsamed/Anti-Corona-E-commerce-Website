@@ -11,5 +11,7 @@ namespace Anti_Corona.Data.Abstract
         void Delete(OrderItem entity);
         void Update(OrderItem entity);
         void Create(OrderItem entity);
+        double GetTotalGain();
+        List<OrderItem> GetLastSalersProduct();
     }
 }

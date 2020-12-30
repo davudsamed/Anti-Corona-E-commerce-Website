@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Admin\" />
     <Folder Include="wwwroot\img\dezenfektanlar\" />
     <Folder Include="wwwroot\img\Eldiven\" />
     <Folder Include="wwwroot\img\latest-product\" />

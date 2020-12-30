@@ -57,5 +57,15 @@ namespace Anti_Corona.Data.Concrete.EFCore
                 return context.Products.Include(i => i.Images).Where(i => i.IsHomePage == true).ToList();
             }
         }
+
+        public int GetProductCount()
+        {
+            using (var context=new AntiCoronaContext())
+            {
+                return context.Products.Count();
+            }
+        }
+
+       
     }
 }

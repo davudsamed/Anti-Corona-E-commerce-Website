@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Anti_Corona.Web.Identity.User>
+@{ Layout = "_LayoutAdmin"; }
+
+<div class="container-fluid">
+    <h1 class="dash-title">Kullanıcılar</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card easion-card">
+                <div class="card-header">
+                    <div class="easion-card-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <div class="easion-card-title">Kullanıcı Bilgileri</div>
+                </div>
+                <div class="card-body ">
+                    <table class="table table-hover table-in-card">
+                        <thead>
+                            <tr>
+                                <th scope="col">Adı</th>
+                                <th scope="col">Soyadı</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Telefon Numarası</th>
+                                <th scope="col">Rolü</th>
+                                <th scope="col">Düzenle/Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td scope="row">@item.FirstName</td>
+                                <td>@item.LastName</td>
+                                <td>@item.Email</td>
+                                <td>@item.PhoneNumber</td>
+                                <td></td>
+                                <td>
+                                    <a href="/admin/UserEdit/@item.Id" class="btn btn-primary btn-sm mr-2"><i class="fas fa-user-edit"></i></a>
+                                    <form action="/admin/UserDelete/@item.Id" method="post" style="display:inline">
+                                        <input type="hidden" name="UserId" value="@item.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm "><i class="fas fa-user-minus"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -58,5 +58,11 @@ namespace Anti_Corona.Business.Concrete
             return _productRepository.GetHomePageProducts();
         }
 
+        public int GetProductCount()
+        {
+            return _productRepository.GetProductCount();
+        }
+
+      
     }
 }

@@ -1,0 +1,91 @@
+﻿@model List<Product>
+@{ Layout = "_LayoutAdmin"; }
+<div class="container-fluid">
+    <h1 class="dash-title">Ürünler</h1>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card easion-card">
+                <div class="card-header">
+                    <div class="easion-card-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <div class="easion-card-title">Ürün Bilgileri</div>
+                </div>
+                <div class="card-body ">
+                    <table id="example" class="table table-hover table-in-card dt-responsive" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th scope="col">Ürun Id</th>
+                                <th scope="col">Resim</th>
+                                <th scope="col">Ürün Başlığı</th>
+                                <th scope="col">Fiyatı</th>
+                                <th scope="col">Stok</th>
+                                <th scope="col">Anasayfa</th>
+                                <th scope="col">Satışta</th>
+                                <th scope="col">Yayın Tarihi</th>
+                                <th scope="col">Kategorisi</th>
+                                <th scope="col">Düzenle/Sil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td scope="row">@item.ProductId</td>
+                                    <td><a href="/shop/details/@item.ProductId"><img src="~/img/featured/@item.Images[0].ImageUrl" width=90 height="67" /></a></td>
+                                    <td>@item.Title</td>
+                                    <td>@(Convert.ToDouble(item.Price).ToString("c"))</td>
+                                    <td>@item.Stock</td>
+                                    <td>
+                                        @if (item.IsHomePage)
+                                        {
+                                            <i class="fas fa-check-circle"></i> }
+                                        else
+                                        {
+                                            <i class="fas fa-times-circle"></i>}
+                                    </td>
+                                    <td>
+                                        @if (item.IsOnSale)
+                                        {
+                                            <i class="fas fa-check-circle"></i> }
+                                        else
+                                        {
+                                            <i class="fas fa-times-circle"></i>}
+                                    </td>
+                                    <td>@item.Date</td>
+                                    <td>@item.Category.Name</td>
+                                    <td>
+                                        <a href="/admin/ProductEdit/@item.ProductId" class="btn btn-primary btn-sm mr-2"><i class="fas fa-edit"></i></a>
+                                        <form action="/admin/ProductDelete" method="post" style="display:inline">
+                                            <input type="hidden" name="productId" value="@item.ProductId" />
+                                            <button type="submit" class="btn btn-danger btn-sm "><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.5/js/responsive.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json",
+                },
+
+            });
+        });</script>
+}
