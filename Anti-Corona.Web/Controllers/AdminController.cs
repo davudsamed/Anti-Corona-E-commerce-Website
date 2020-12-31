@@ -16,22 +16,28 @@ namespace Anti_Corona.Web.Controllers
         private RoleManager<IdentityRole> _roleManager;
         private IProductService _productService;
         private IOrderService _orderService;
-        public AdminController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager,IProductService productService,IOrderService orderService)
+        private ICategoryService _categoryService;
+        public AdminController(UserManager<User> userManager,
+                               RoleManager<IdentityRole> roleManager,
+                               IProductService productService,
+                               IOrderService orderService,
+                               ICategoryService categoryService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _productService = productService;
             _orderService = orderService;
+            _categoryService = categoryService;
         }
         public IActionResult Index()
         {
             var deneme = _orderService.GetLastSalersProduct();
             return View(new AdminDashboardViewModel()
-            { 
-                ProductCount=_productService.GetProductCount(),
-                UserCount=_userManager.Users.Count(),
-                Revenue=_orderService.GetTotalGain(),
-                lastSalersProduct=_orderService.GetLastSalersProduct().Select(i=> new OrderItemModel()
+            {
+                ProductCount = _productService.GetProductCount(),
+                UserCount = _userManager.Users.Count(),
+                Revenue = _orderService.GetTotalGain(),
+                lastSalersProduct = _orderService.GetLastSalersProduct().Select(i => new OrderItemModel()
                 {
                     Title = i.Product.Title,
                     Price = (double)i.Product.Price * i.Quantity,
@@ -206,10 +212,63 @@ namespace Anti_Corona.Web.Controllers
         {
             return View(_productService.GetAllProducts(""));
         }
+        [HttpGet]
+        public IActionResult ProductEdit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var product = _productService.GetProductDetails((int)id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            var model = new ProductEditModel()
+            {
+                ProductId = product.ProductId,
+                categoryId = Convert.ToString(product.CategoryId),
+                Description = product.Description,
+                isHomePage = product.IsHomePage,
+                isOnSale = product.IsOnSale,
+                Price = (double)product.Price,
+                Stock = product.Stock,
+                Title = product.Title,
+                imageUrl=product.Images[0].ImageUrl
+            };
+            ViewBag.Categories = _categoryService.GetAllCategories();
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult ProductEdit(ProductEditModel editProduct)
+        {
+            if (!ModelState.IsValid)
+            {
+                var tempProduct = _productService.GetProductDetails(editProduct.ProductId);
+                editProduct.imageUrl = tempProduct.Images[0].ImageUrl;
+                ViewBag.Categories = _categoryService.GetAllCategories();
+                return View(editProduct);
+            }
+            var product = _productService.GetById(editProduct.ProductId);
+            if (product==null)
+            {
+                return NotFound();
+            }
+            product.Description = editProduct.Description;
+            product.CategoryId = Convert.ToInt32(editProduct.categoryId);
+            product.IsHomePage = editProduct.isHomePage;
+            product.IsOnSale = editProduct.isOnSale;
+            product.Stock = editProduct.Stock;
+            product.Price = editProduct.Price;
+            product.Title = editProduct.Title;
+            _productService.Update(product);
+            return Redirect("/admin/ProductList");
+
+        }
         public IActionResult ProductDelete(int productId)
         {
             var product = _productService.GetById(productId);
-            if (product!=null)
+            if (product != null)
             {
                 _productService.Delete(product);
             }
