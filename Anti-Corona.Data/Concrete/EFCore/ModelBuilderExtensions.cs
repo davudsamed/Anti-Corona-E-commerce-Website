@@ -16,7 +16,23 @@ namespace Anti_Corona.Data.Concrete.EFCore
                 new Category() { CategoryId = 3, Name = "Dezenfektanlar", ImageUrl = "dezenfektan.jpg" },
                 new Category() { CategoryId = 4, Name = "Siperlikler", ImageUrl = "siperlik.jpg" }
         );
+
+            modelBuilder.Entity<Brand>().HasData(
+                new Brand() { Id = 1, Name = "Hayat Kimya", },
+                new Brand() { Id = 2, Name = "Smask Cerrahi Maske",},
+                new Brand() { Id = 3, Name = "Happy Maske",},
+                new Brand() { Id = 4, Name = "Beybi",  },
+                new Brand() { Id = 5, Name = "Ergün Eldiven",  },
+                new Brand() { Id = 6, Name = "Dermosept",  },
+                new Brand() { Id = 7, Name = "Crystalin",  },
+                new Brand() { Id = 8, Name = "Deep Fresh",  },
+                new Brand() { Id = 9, Name = "Özgürce Seç",  },
+                new Brand() { Id = 10, Name = "Tuğbasan",  },
+                new Brand() { Id = 11, Name = "Medizer", }
+        );
+
             modelBuilder.Entity<Product>().HasData(
+                ///////////////////////////////////////////////////////////////////////////////////////////////Maskeler
                 new Product()
                 {
                     ProductId = 1,
@@ -31,7 +47,8 @@ namespace Anti_Corona.Data.Concrete.EFCore
                     Stock = 100,
                     Date = new DateTime(2020, 12, 27, 13, 30, 50),
                     IsHomePage = true,
-                    IsOnSale = true
+                    IsOnSale = true,
+                    BrandId=1,
                 },
 
                 new Product()
@@ -49,7 +66,8 @@ namespace Anti_Corona.Data.Concrete.EFCore
                     Stock = 200,
                     Date = new DateTime(2020, 12, 26, 12, 30, 50),
                     IsHomePage = true,
-                    IsOnSale = true
+                    IsOnSale = true,
+                    BrandId = 2
                 },
 
                 new Product()
@@ -64,9 +82,12 @@ namespace Anti_Corona.Data.Concrete.EFCore
                     Stock = 200,
                     Date = new DateTime(2020, 12, 26, 12, 30, 50),
                     IsHomePage = true,
-                    IsOnSale = true
+                    IsOnSale = true,
+                    BrandId = 3
                 },
 
+
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////// Eldivenler
                 new Product()
                 {
                     ProductId = 7,
@@ -82,7 +103,8 @@ namespace Anti_Corona.Data.Concrete.EFCore
                     Stock = 200,
                     Date = new DateTime(2020, 12, 26, 12, 30, 50),
                     IsHomePage = true,
-                    IsOnSale = true
+                    IsOnSale = true,
+                    BrandId = 4
                 },
                   new Product()
                   {
@@ -99,8 +121,11 @@ namespace Anti_Corona.Data.Concrete.EFCore
                       Stock = 200,
                       Date = new DateTime(2020, 12, 26, 12, 30, 50),
                       IsHomePage = true,
-                      IsOnSale = true
+                      IsOnSale = true,
+                      BrandId = 5
                   },
+
+                  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////  Dezenfektanlar
                   new Product()
                   {
                       ProductId = 4,
@@ -114,7 +139,8 @@ namespace Anti_Corona.Data.Concrete.EFCore
                       Stock = 200,
                       Date = new DateTime(2020, 12, 26, 12, 30, 50),
                       IsHomePage = true,
-                      IsOnSale = true
+                      IsOnSale = true,
+                      BrandId = 6
                   },
 
                   new Product()
@@ -130,7 +156,8 @@ namespace Anti_Corona.Data.Concrete.EFCore
                       Stock = 200,
                       Date = new DateTime(2020, 12, 26, 12, 30, 50),
                       IsHomePage = true,
-                      IsOnSale = true
+                      IsOnSale = true,
+                      BrandId = 7
                   },
                   new Product()
                   {
@@ -145,9 +172,10 @@ namespace Anti_Corona.Data.Concrete.EFCore
                       Stock = 200,
                       Date = new DateTime(2020, 12, 26, 12, 30, 50),
                       IsHomePage = true,
-                      IsOnSale = true
+                      IsOnSale = true,
+                      BrandId = 8
                   },
-
+                      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Siperlik
                       new Product()
                       {
                           ProductId = 9,
@@ -162,7 +190,8 @@ namespace Anti_Corona.Data.Concrete.EFCore
                           Stock = 200,
                           Date = new DateTime(2020, 12, 26, 12, 30, 50),
                           IsHomePage = true,
-                          IsOnSale = true
+                          IsOnSale = true,
+                          BrandId = 9
                       },
 
                        new Product()
@@ -176,14 +205,15 @@ namespace Anti_Corona.Data.Concrete.EFCore
                            Stock = 200,
                            Date = new DateTime(2020, 12, 26, 12, 30, 50),
                            IsHomePage = true,
-                           IsOnSale = true
+                           IsOnSale = true,
+                           BrandId = 10
                        },
 
                         new Product()
                         {
                             ProductId = 11,
                             CategoryId = 4,
-                            Title = "Medizer Novid Siyah Gözlüklü Yüz Koruyucu Siperli",
+                            Title = "Medizer Novid Siyah Gözlüklü Yüz Koruyucu Siperlik",
                             Description = "Partikül, tükürük, damlacık, toz ve benzeri küçük cisimlerin yüzünüze (göz, ağız, burun)" +
                             " gelmesini ve sizden karşı tarafa gitmesini engeller." +
                              "Şeffaf siperlik" +
@@ -198,15 +228,67 @@ namespace Anti_Corona.Data.Concrete.EFCore
                             Stock = 200,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50),
                             IsHomePage = true,
-                            IsOnSale = true
+                            IsOnSale = true,
+                            BrandId = 11
                         }
 
 
         );
             modelBuilder.Entity<Comment>().HasData(
-                new Comment() { CommentId = 1, ProductId = 1, Description = "Güzel maske" },
-                new Comment() { CommentId = 2, ProductId = 2, Description = "Güzel maske1" }
-        );
+                //Doğru//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Maske Yorumları
+                new Comment() { CommentId = 1, ProductId = 1, Description = "Yüksek kaliteli ve hızlı kargo. Lakin minyon tipli insanların yüzlerini tam kavramayabilir ve büyük gelebilir." },
+                new Comment() { CommentId = 2, ProductId = 1, Description = "Aylardır maske değiştiriyorum en son bir medikal ürünü bulmuştum en iyi o sanıyorum fakat yanılmışım. Şuan kullanılacak en hijyenik paketli en kaliteli maske budur. Tesadüfen markette görmüştüm kulak arkası hoşuma gittiği için 1 paket almıştım fakat trendyola göre çok pahalıydı. Hemen sipariş verdim e-grossmarket sağolsun hızlıca gönderdi. Bundan sonra kullanacağım maske markasını ben buldum herkese de öneririm." },
+                new Comment() { CommentId = 3, ProductId = 1, Description = "Sürekli aldığım maske... Yüzü ufak kişiler için biraz büyük kaçıyor ama kalınlığı,kulak acıtmayışı her şeyi ile aldığım en iyi maske derim.." },
+                new Comment() { CommentId = 4, ProductId = 1, Description = "En sevdiğim maskem oldu, ne koku ne öksürük hiçbirşey yapmadı. Umarım çok sürmez takmamız ama bitebe kadar favorim Evony" },
+
+                new Comment() { CommentId = 5, ProductId = 2, Description = "Kullandığınız diğer maskeleri çöpe atın. Bu üç katlı ve kalın maske.maskeyi kesip katlarını kontrol ettim." },
+                new Comment() { CommentId = 6, ProductId = 2, Description = "Ürün. Gayet iyi ve hesaplı maskeyi takınca nefes alma zorluğu çekmiyorsunuz maskede koku yok havalanması iyi  kulakları acıtmıyor kesinlikle tavsiye ederim" },
+                new Comment() { CommentId = 7, ProductId = 2, Description = "Yanaklarımı tam kapattı, önceki maskelerde aralık kalıyordu. Hafif, lastikleri rahatsız etmiyor. Üç katlı. El ile yırttığımda dağılmadan düzgün yırtıldı. Umarım iyi koruyordur," },
+
+                new Comment() { CommentId = 8, ProductId = 3, Description = "Maske kalın ebatları 3 kat hepsi kalın.çok güzel lastikleri hiç acıtmıyor.büyük bir maske benim gibi ufak yüzlüyseniz cok az büyük gelebilir ama sorun yok.kutuları gayet hijyen olarak posetli geldi düzenli konulmuş çok iyi..." },
+                new Comment() { CommentId = 9, ProductId = 3, Description = "Piyasadaki çoğu maskeden kat kat güzel. Yanında gönderien hediye için teşekkürler!" },
+                new Comment() { CommentId = 10, ProductId = 3, Description = "Fiyatına göre kalitesi idare eder. İlk başya, maskelerin hiçbirinde ip yok  diye iade edecektim. İpi klasik ip değil kendi malzemesinden yapılmış kenardan çekerek ip haline geliyor." },
+
+                //Doğru//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Eldivenler Yorumları
+                new Comment() { CommentId = 11, ProductId = 7, Description = "Memnunum kaliteli hemen yırtılmıyor . Yemek yaparken de temizlik yaparken de kullanıyorum" },
+                new Comment() { CommentId = 12, ProductId = 7, Description = "Pandemi döneminde aldık.. Çok memnun kaldık.. Tavsiye ederiz.." },
+                new Comment() { CommentId = 13, ProductId = 7, Description = "Önceden de kullandığım bir eldiven, memnunum." },
+                new Comment() { CommentId = 14, ProductId = 7, Description = "Ürün kaliteli ve kullanışlı tavsiye edilir" },
+
+                new Comment() { CommentId = 15, ProductId = 8, Description = "Çok kalın değil eldivenler ama kullanışlı ben çift kat kullanıyorum daha garanti sanki." },
+                new Comment() { CommentId = 16, ProductId = 8, Description = "Ürün anlatıldığı gibi.sorunsuz alışveriş" },
+                new Comment() { CommentId = 17, ProductId = 8, Description = "Ürünün hem fiyatı hemde kalitesi çok iyi harika beğendim" },
+                new Comment() { CommentId = 18, ProductId = 8, Description = "Ürün oldukça kaliteli ve rahat kullanıma sahip. Pudrasız olması alerji yapmasını engelliyor." },
+                new Comment() { CommentId = 19, ProductId = 8, Description = "Diğer beyaz eldivenleerden kalitesi oldukça iyi" },
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Dezenfektanlar Yorumları
+                new Comment() { CommentId = 20, ProductId = 4, Description = "1 günde geldi kargo çok hızlı, teşekkürler." },
+                new Comment() { CommentId = 21, ProductId = 4, Description = "saglik bakanligi onayli olmasi ve kokusunun aynen parfum gibi olmasi ve elleri tahris etmemesi en onemli faktor. apartman icinde kullaniyoruz. hepimiz memnunuz. kargoda hasar almamisti. paketlemesi iyiydi. sizdirma vs yoktu. siparis verdikten 1 gun sonra teslim aldim. alacaklara kesinlikle tavsiye ederim." },
+                new Comment() { CommentId = 22, ProductId = 4, Description = "Kutusunda etiket yoktu. Alkol oranı düşük" },
+                new Comment() { CommentId = 23, ProductId = 4, Description = "Müsteri memnuniyeti iyi arayıp ellerindeki ürünün kalmadigini muadil bir urun gondereceklerini soylediler kabul ettim farkli siteleedeki satis fiyati daha pahaliydi denemeye deger gördüm guvenli alisveris yapilabilir diye düşünüyorum madur olmayacaginiz garanti..ürünün kokusu fena degil 10 saat oldu kullanali herhangi bir yan etki veya olumsuzlukla karsilasmadim" },
+
+                new Comment() { CommentId = 24, ProductId = 5, Description = "Ürün güzel ama açıldıktan sonra bir ay içinde tüketmeniz gerekiyor bir ay için bu kadar para verilir mi tartışılır belki kalabalık bir aile ise veya iki üç arkadaş beraber alınıp paylaşılabilir yoksa her ay bu kadar dezenfektan parası verilmez bence" },
+                new Comment() { CommentId = 25, ProductId = 5, Description = "Daha önce bir kaç tane dezefektan aldım. Çocuğumun cildi çok hassas olduğu için tahriş oldu. İnternette hassas ciltler için etkili dezenfektan ararken Crystalin markası ile karşılaştım. Sitesini inceledim ve ikna olarak sipariş ettim. Ürün çok güzel. Özellikle hassas cildi, bebeği ve çocukları olanlara tavsiye ederim. Kit hazırlanırken çok profesyonel düşünülmüş. Çok kullanışlı." },
+                new Comment() { CommentId = 26, ProductId = 5, Description = "Ürün başarılı, hediye maske hareketi 10 numara :slight_smile:" },
+                new Comment() { CommentId = 27, ProductId = 5, Description = "Ürünü her yerde kullanıyorum. Çok memnunum. Koku yok renk yok. Marketten gelenlere sıkıyorum, el yüz sebze meyve için kullanıyorum. Üstelik bereketli. Şu ana kadar 100 ml kadarını kullandım daha. Konstantre şekilde geliyor. Yanında görülen diğer şişeler boş. Sulandırılarak kullanılıyor. Tavsiye ederim." },
+
+                new Comment() { CommentId = 28, ProductId = 6, Description = "Daha önce de kullanıyordum. Set olarak almak çok daha avantajlı oldu. Koku yok yapış yapış hissi yok. Sadece klor alerjisi olanlar almadan önce düşünsün lütfen." },
+                new Comment() { CommentId = 29, ProductId = 6, Description = "ürünü tavsiye üzerine aldım. Yaptığım araştırmada ürünün alkolsüz ve cilt ile dost olduğunu tespit etmiştim. Rahatsız edici bir kokusu yok, 1/10 oranında seyreltilip kullanıldığından çok ekonomik. İçinden çeşitli boyutlarda 6 adet yedek şişe çıkıyor. Şişeleri, ölçü kabı ve bilgilendirme kağıdından kalitesi belli oluyor. Benim gibi hijyen konusunda hassas kişilere şiddetle tavsiye ederim." },
+                new Comment() { CommentId = 30, ProductId = 6, Description = "Hekimlerin önerdiği çocuklara ve kendinize rahatla kullanacağınız ve diğer dezenfektanlara göre aşırı ekonomik" },
+                new Comment() { CommentId = 31, ProductId = 6, Description = "Aslında ürünü daha kullanmadım ama açılınca 1ay içerisinde kullanılması gerekiyormuş bayağı büyük de konsantre olduğu için bunu gözönünde bulundurun" },
+                new Comment() { CommentId = 32, ProductId = 6, Description = "Bu kadar hızlı bir kargo deneyimi yaşamamıştım hiç. Ertesi günü elimdeydi. Doktorumuzun tavsiyesi üzerine aldık, çok memnunum. Evde işyerinde arabada hep kullanıyoruz" },
+
+                ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// Siperlikler Yorumları
+                new Comment() { CommentId = 33, ProductId = 10, Description = "Kısa sürede geldi. Özenli paketlenmiş. Kardeşimin okulda takması için aldım. Ürün çok güzel çok kaliteli. Yüzü tamamen kapatıyor. İçimiz rahat edecek 🙏🏻" },
+                new Comment() { CommentId = 34, ProductId = 10, Description = "cok guzel yuzun tüm bölümlerini alın dahil kapsıyor ve maske + siperlik takıyorum,buğulanma hic yapmio,hareketli olmasi da ayrıca kolaylik ve alinda sungerli olmasi hic rahatsiz etmio" },
+                new Comment() { CommentId = 35, ProductId = 10, Description = "Bayıldım!! Kesinlikle tavsiye ediyorum verilen ücreti sonuna kadar hak ediyor" },
+                new Comment() { CommentId = 36, ProductId = 10, Description = "O kadar rahat ki. Lastikli olmasi basinizda tasirken hafifletiyor ve agirlik yapmiyor. Kalite sahane" },
+
+                new Comment() { CommentId = 37, ProductId = 11, Description = "Eşim öğretmen derste takmasi için aldık. Çok beğendi" },
+                new Comment() { CommentId = 38, ProductId = 11, Description = "ürün çok güzel ve kaliteli yüzü tamamen kapatıyor ." },
+                new Comment() { CommentId = 39, ProductId = 11, Description = "baş agrıtmayan cok guzel dusunulmuş bir ürün 😊😊" },
+                new Comment() { CommentId = 40, ProductId = 11, Description = "Gayet güzel güven veriyor kaliteli bozulmuyor yıpranmıyor" }
+            );
             modelBuilder.Entity<Image>().HasData(
                 new Image() { ImageId = 1, ProductId = 1, ImageUrl = "maske1.1.jpg" },
                 new Image() { ImageId = 2, ProductId = 1, ImageUrl = "maske1.2.jpg" },
@@ -254,8 +336,7 @@ namespace Anti_Corona.Data.Concrete.EFCore
 
                 new Image() { ImageId = 35, ProductId = 11, ImageUrl = "siperlik3.1.jpg" },
                 new Image() { ImageId = 36, ProductId = 11, ImageUrl = "siperlik3.2.jpg" }
-
-        );
+            );
 
         }
     }
