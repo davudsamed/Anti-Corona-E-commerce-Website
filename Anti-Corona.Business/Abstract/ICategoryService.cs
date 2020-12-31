@@ -12,5 +12,6 @@ namespace Anti_Corona.Business.Abstract
         void Delete(Category entity);
         Category GetById(int id);
         List<Category> GetAllCategories();
+        Category GetByIdWithProducts(int categoryId);
     }
 }
