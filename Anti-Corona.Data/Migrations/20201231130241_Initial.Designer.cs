@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Anti_Corona.Data.Migrations
 {
     [DbContext(typeof(AntiCoronaContext))]
-    [Migration("20201229191705_initial")]
-    partial class initial
+    [Migration("20201231130241_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,78 @@ namespace Anti_Corona.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Anti_Corona.Entity.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brands");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Hayat Kimya"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Smask Cerrahi Maske"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Happy Maske"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Beybi"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Ergün Eldiven"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Dermosept"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Crystalin"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Deep Fresh"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Özgürce Seç"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Tuğbasan"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Medizer"
+                        });
+                });
 
             modelBuilder.Entity("Anti_Corona.Entity.CartItem", b =>
                 {
@@ -111,14 +183,242 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             CommentId = 1,
-                            Description = "Güzel maske",
+                            Description = "Yüksek kaliteli ve hızlı kargo. Lakin minyon tipli insanların yüzlerini tam kavramayabilir ve büyük gelebilir.",
                             ProductId = 1
                         },
                         new
                         {
                             CommentId = 2,
-                            Description = "Güzel maske1",
+                            Description = "Aylardır maske değiştiriyorum en son bir medikal ürünü bulmuştum en iyi o sanıyorum fakat yanılmışım. Şuan kullanılacak en hijyenik paketli en kaliteli maske budur. Tesadüfen markette görmüştüm kulak arkası hoşuma gittiği için 1 paket almıştım fakat trendyola göre çok pahalıydı. Hemen sipariş verdim e-grossmarket sağolsun hızlıca gönderdi. Bundan sonra kullanacağım maske markasını ben buldum herkese de öneririm.",
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CommentId = 3,
+                            Description = "Sürekli aldığım maske... Yüzü ufak kişiler için biraz büyük kaçıyor ama kalınlığı,kulak acıtmayışı her şeyi ile aldığım en iyi maske derim..",
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CommentId = 4,
+                            Description = "En sevdiğim maskem oldu, ne koku ne öksürük hiçbirşey yapmadı. Umarım çok sürmez takmamız ama bitebe kadar favorim Evony",
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            CommentId = 5,
+                            Description = "Kullandığınız diğer maskeleri çöpe atın. Bu üç katlı ve kalın maske.maskeyi kesip katlarını kontrol ettim.",
                             ProductId = 2
+                        },
+                        new
+                        {
+                            CommentId = 6,
+                            Description = "Ürün. Gayet iyi ve hesaplı maskeyi takınca nefes alma zorluğu çekmiyorsunuz maskede koku yok havalanması iyi  kulakları acıtmıyor kesinlikle tavsiye ederim",
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            CommentId = 7,
+                            Description = "Yanaklarımı tam kapattı, önceki maskelerde aralık kalıyordu. Hafif, lastikleri rahatsız etmiyor. Üç katlı. El ile yırttığımda dağılmadan düzgün yırtıldı. Umarım iyi koruyordur,",
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            CommentId = 8,
+                            Description = "Maske kalın ebatları 3 kat hepsi kalın.çok güzel lastikleri hiç acıtmıyor.büyük bir maske benim gibi ufak yüzlüyseniz cok az büyük gelebilir ama sorun yok.kutuları gayet hijyen olarak posetli geldi düzenli konulmuş çok iyi...",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            CommentId = 9,
+                            Description = "Piyasadaki çoğu maskeden kat kat güzel. Yanında gönderien hediye için teşekkürler!",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            CommentId = 10,
+                            Description = "Fiyatına göre kalitesi idare eder. İlk başya, maskelerin hiçbirinde ip yok  diye iade edecektim. İpi klasik ip değil kendi malzemesinden yapılmış kenardan çekerek ip haline geliyor.",
+                            ProductId = 3
+                        },
+                        new
+                        {
+                            CommentId = 11,
+                            Description = "Memnunum kaliteli hemen yırtılmıyor . Yemek yaparken de temizlik yaparken de kullanıyorum",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            CommentId = 12,
+                            Description = "Pandemi döneminde aldık.. Çok memnun kaldık.. Tavsiye ederiz..",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            CommentId = 13,
+                            Description = "Önceden de kullandığım bir eldiven, memnunum.",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            CommentId = 14,
+                            Description = "Ürün kaliteli ve kullanışlı tavsiye edilir",
+                            ProductId = 7
+                        },
+                        new
+                        {
+                            CommentId = 15,
+                            Description = "Çok kalın değil eldivenler ama kullanışlı ben çift kat kullanıyorum daha garanti sanki.",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            CommentId = 16,
+                            Description = "Ürün anlatıldığı gibi.sorunsuz alışveriş",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            CommentId = 17,
+                            Description = "Ürünün hem fiyatı hemde kalitesi çok iyi harika beğendim",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            CommentId = 18,
+                            Description = "Ürün oldukça kaliteli ve rahat kullanıma sahip. Pudrasız olması alerji yapmasını engelliyor.",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            CommentId = 19,
+                            Description = "Diğer beyaz eldivenleerden kalitesi oldukça iyi",
+                            ProductId = 8
+                        },
+                        new
+                        {
+                            CommentId = 20,
+                            Description = "1 günde geldi kargo çok hızlı, teşekkürler.",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            CommentId = 21,
+                            Description = "saglik bakanligi onayli olmasi ve kokusunun aynen parfum gibi olmasi ve elleri tahris etmemesi en onemli faktor. apartman icinde kullaniyoruz. hepimiz memnunuz. kargoda hasar almamisti. paketlemesi iyiydi. sizdirma vs yoktu. siparis verdikten 1 gun sonra teslim aldim. alacaklara kesinlikle tavsiye ederim.",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            CommentId = 22,
+                            Description = "Kutusunda etiket yoktu. Alkol oranı düşük",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            CommentId = 23,
+                            Description = "Müsteri memnuniyeti iyi arayıp ellerindeki ürünün kalmadigini muadil bir urun gondereceklerini soylediler kabul ettim farkli siteleedeki satis fiyati daha pahaliydi denemeye deger gördüm guvenli alisveris yapilabilir diye düşünüyorum madur olmayacaginiz garanti..ürünün kokusu fena degil 10 saat oldu kullanali herhangi bir yan etki veya olumsuzlukla karsilasmadim",
+                            ProductId = 4
+                        },
+                        new
+                        {
+                            CommentId = 24,
+                            Description = "Ürün güzel ama açıldıktan sonra bir ay içinde tüketmeniz gerekiyor bir ay için bu kadar para verilir mi tartışılır belki kalabalık bir aile ise veya iki üç arkadaş beraber alınıp paylaşılabilir yoksa her ay bu kadar dezenfektan parası verilmez bence",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            CommentId = 25,
+                            Description = "Daha önce bir kaç tane dezefektan aldım. Çocuğumun cildi çok hassas olduğu için tahriş oldu. İnternette hassas ciltler için etkili dezenfektan ararken Crystalin markası ile karşılaştım. Sitesini inceledim ve ikna olarak sipariş ettim. Ürün çok güzel. Özellikle hassas cildi, bebeği ve çocukları olanlara tavsiye ederim. Kit hazırlanırken çok profesyonel düşünülmüş. Çok kullanışlı.",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            CommentId = 26,
+                            Description = "Ürün başarılı, hediye maske hareketi 10 numara :slight_smile:",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            CommentId = 27,
+                            Description = "Ürünü her yerde kullanıyorum. Çok memnunum. Koku yok renk yok. Marketten gelenlere sıkıyorum, el yüz sebze meyve için kullanıyorum. Üstelik bereketli. Şu ana kadar 100 ml kadarını kullandım daha. Konstantre şekilde geliyor. Yanında görülen diğer şişeler boş. Sulandırılarak kullanılıyor. Tavsiye ederim.",
+                            ProductId = 5
+                        },
+                        new
+                        {
+                            CommentId = 28,
+                            Description = "Daha önce de kullanıyordum. Set olarak almak çok daha avantajlı oldu. Koku yok yapış yapış hissi yok. Sadece klor alerjisi olanlar almadan önce düşünsün lütfen.",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            CommentId = 29,
+                            Description = "ürünü tavsiye üzerine aldım. Yaptığım araştırmada ürünün alkolsüz ve cilt ile dost olduğunu tespit etmiştim. Rahatsız edici bir kokusu yok, 1/10 oranında seyreltilip kullanıldığından çok ekonomik. İçinden çeşitli boyutlarda 6 adet yedek şişe çıkıyor. Şişeleri, ölçü kabı ve bilgilendirme kağıdından kalitesi belli oluyor. Benim gibi hijyen konusunda hassas kişilere şiddetle tavsiye ederim.",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            CommentId = 30,
+                            Description = "Hekimlerin önerdiği çocuklara ve kendinize rahatla kullanacağınız ve diğer dezenfektanlara göre aşırı ekonomik",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            CommentId = 31,
+                            Description = "Aslında ürünü daha kullanmadım ama açılınca 1ay içerisinde kullanılması gerekiyormuş bayağı büyük de konsantre olduğu için bunu gözönünde bulundurun",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            CommentId = 32,
+                            Description = "Bu kadar hızlı bir kargo deneyimi yaşamamıştım hiç. Ertesi günü elimdeydi. Doktorumuzun tavsiyesi üzerine aldık, çok memnunum. Evde işyerinde arabada hep kullanıyoruz",
+                            ProductId = 6
+                        },
+                        new
+                        {
+                            CommentId = 33,
+                            Description = "Kısa sürede geldi. Özenli paketlenmiş. Kardeşimin okulda takması için aldım. Ürün çok güzel çok kaliteli. Yüzü tamamen kapatıyor. İçimiz rahat edecek 🙏🏻",
+                            ProductId = 10
+                        },
+                        new
+                        {
+                            CommentId = 34,
+                            Description = "cok guzel yuzun tüm bölümlerini alın dahil kapsıyor ve maske + siperlik takıyorum,buğulanma hic yapmio,hareketli olmasi da ayrıca kolaylik ve alinda sungerli olmasi hic rahatsiz etmio",
+                            ProductId = 10
+                        },
+                        new
+                        {
+                            CommentId = 35,
+                            Description = "Bayıldım!! Kesinlikle tavsiye ediyorum verilen ücreti sonuna kadar hak ediyor",
+                            ProductId = 10
+                        },
+                        new
+                        {
+                            CommentId = 36,
+                            Description = "O kadar rahat ki. Lastikli olmasi basinizda tasirken hafifletiyor ve agirlik yapmiyor. Kalite sahane",
+                            ProductId = 10
+                        },
+                        new
+                        {
+                            CommentId = 37,
+                            Description = "Eşim öğretmen derste takmasi için aldık. Çok beğendi",
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            CommentId = 38,
+                            Description = "ürün çok güzel ve kaliteli yüzü tamamen kapatıyor .",
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            CommentId = 39,
+                            Description = "baş agrıtmayan cok guzel dusunulmuş bir ürün 😊😊",
+                            ProductId = 11
+                        },
+                        new
+                        {
+                            CommentId = 40,
+                            Description = "Gayet güzel güven veriyor kaliteli bozulmuyor yıpranmıyor",
+                            ProductId = 11
                         });
                 });
 
@@ -411,6 +711,9 @@ namespace Anti_Corona.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("BrandId")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -437,6 +740,8 @@ namespace Anti_Corona.Data.Migrations
 
                     b.HasKey("ProductId");
 
+                    b.HasIndex("BrandId");
+
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
@@ -445,6 +750,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 1,
+                            BrandId = 1,
                             CategoryId = 1,
                             Date = new DateTime(2020, 12, 27, 13, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Hayat Kimya olarak, hijyen ve temizlik kategorilerindeki 33 yıllık deneyimimizi Evony markamızla cerrahi maske kategorisine taşıyoruz. TSE Tip2R ve TSE Güvenli Üretim sertifikalı Evony Maske %99 a kadar bakteri filtrasyonu sağlamaktadır. 3 katmanlı, Melt Blown+ Spunbond cilde dost katmanlar. Tek katmanda değil her katmanda koruma. Pamuksu Yumuşak katmanlarla saatlerce rahat kullanım. Acıtmayan Yumuşak Elastik Kulaklarıyla koruma ve konforu bir arada. Yüze tam uyumlu Burun Teli. Alerji Yapmaz. Latex İçermez. Paraben içermez. Naylon İçermez. CE sertifikalı. TSE Tip2R , EN14683, ISO13485, TSE Güvenli ",
@@ -457,6 +763,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 2,
+                            BrandId = 2,
                             CategoryId = 1,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "1 Kutuda 50 adet bulunmaktadır. 2 Kutu Gönderilecektir.Hava Geçiren Yapı.Yumuşak ve Ayarlanabilir, Tahriş etmez, Rahat takılır.Fiberglass ve Lateks İçermiyor.Filtreli, Üç katlı, tek kullanımlık, lastikli, 3 kıvrımlı.Polipropilen / Non-Woven.Yuvarlak lastikli ultrasonik dikişlidir.Kullanımda rahatlık.Lateks içermez.Hava geçirgen, kolay nefes almayı sağlayan RC cerrahi maske non woven kumaştan üretilmiştir.Gipe lastik kullanılan bu maske tek kullanımlık olup hijyenik ve CE'li dir.Yüze tam uyumludur.",
@@ -469,6 +776,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 3,
+                            BrandId = 3,
                             CategoryId = 1,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Happy Yumuşak Elastik Kulaklı 3 Katlı Telli Mavi Cerrahi Maske 50 li x 2 Adet,Acıtmayan yumuşak elastik kulaklarıyla koruma ve konforu bir arada,Yüze tam uyumlu burun teli,Alerji Yapmaz,Latex İçermez,Klor içermez,Naylon İçermez,Ce Sertifikalı,FDA , ISO 13485 ",
@@ -481,6 +789,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 7,
+                            BrandId = 4,
                             CategoryId = 2,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Beybi tek kullanımlık eldiven, elin şeklini alarak kolay hareket imkanı sağlar. Tek kullanımlık eldiven ile yemekler hijyenik bir şekilde hazırlanır. Hem temizlik hem de yemek yapımı sırasında ellerin kurumasını, kirlenmesini ve tahriş olmasını önler.Tek kullanımlıkMiktar : Kutu içerisinde 100 AdetRenk : Beyaz",
@@ -493,6 +802,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 8,
+                            BrandId = 5,
                             CategoryId = 2,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Pudrasız Lateks Eldiven (Large)- Pudrasız Lateks Eldivenler, Hijyen Gerektiren Tüm Ortamlarda, Elle Bulaşması Muhtemel Mikrop, Virüs Ve Bakterilere Karşı Koruyucudur. - Doğal Lateks Hammaddeden Üretilmiştir. - Giymesi Ve Çıkartması Kolaydır. - Yumuşak Ve Elastik Yapısı Sayesinde Elinize Tam Oturur. - Hastaneler, Diş Klinikleri, Veterinerler, Laboratuvarlar, İlaç Sektörü, Deterjan Ve Temizlik, Kozmetik Gibi Çok Çeşitli Endüstrilerde Kullanım İçin İdealdir. - Beyaz Renklidir. - Yuvarlak Hatlı Manşeti Sayesinde Kolayca Giyilir Ve Çıkartılır. Özellikle Hastane Kullanımlarında Çok Hızlı Giyilip Çıkartılabilir.",
@@ -505,6 +815,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 4,
+                            BrandId = 6,
                             CategoryId = 3,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Sağlık bakanlığı tarafından Ruhsatnameli, ISO ve CE sertifikalı, Msds Raporu bulunmaktadır. Toplamda % 70 Alkol oranına sahiptir. (% 58 Ethil % 12 İzopropil).Ürüne kullanım esnasında kokusundan dolayı rahatsız etmemesi amacı ile % 002 esans eklenerek herkes tarafından kullanılabilinir hale getirilmiştir.Elde hızlıca kurumaktadır.",
@@ -517,6 +828,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 5,
+                            BrandId = 7,
                             CategoryId = 3,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Cildinizde ekonomik ve sağlıklı bir şekilde virüs, bakteri ve mantarlara karşı %100 doğal koruma sağlayarak, hayatınızın her alanında yanınızda taşıyabilmeniz için tasarlanmış bir üründür.  Crystalin Eco Antiseptik Dezenfektan Hijyenik Yaşam Kiti içerisinde bulunan 1 litrelik şişedeki konsantre ürünle 10 litre anti-septik dezenfektan elde ederek aylarca güvenle kullanabilirsiniz.",
@@ -529,6 +841,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 6,
+                            BrandId = 8,
                             CategoryId = 3,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Sağlık bakanlığı tarafından Ruhsatnameli, ISO ve CE sertifikalı, Msds Raporu bulunmaktadır. Toplamda % 70 Alkol oranına sahiptir. (% 58 Ethil % 12 İzopropil).Ürüne kullanım esnasında kokusundan dolayı rahatsız etmemesi amacı ile % 002 esans eklenerek herkes tarafından kullanılabilinir hale getirilmiştir.Elde hızlıca kurumaktadır.",
@@ -541,6 +854,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 9,
+                            BrandId = 9,
                             CategoryId = 4,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "ÖzgürceSeç Şeffaf Maske Yikanabilir Yeniden Kullanabilabilir Kulakta yara ve iz bırakmaz.Yumuşak malzemeden üretilmiştir.Başta ağrı ve ağırlık hissi yaratmaz.Herkes rahatlıkla kullanabilir.Her bedene göre ayarlanabilir.Maskemizin en alt kısmından hava sirkülasyonu  gerçekleşmektedir.Korucuyu maskedir.Ürün tek kullanımlık değildir.Yıkanabilir.Uzun kullanım süresi  tanımaktadır.Ürünümüzün CE - ISO belgeleri bulunmaktadır.",
@@ -553,6 +867,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 10,
+                            BrandId = 10,
                             CategoryId = 4,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Siperlik klipsi; Koruyucu maskenin burun, ağız ve çene bölgesinde oluşabilecek boşlukları minimuma indirerek Siperliğin yüze tam oturmasını sağlar.",
@@ -565,6 +880,7 @@ namespace Anti_Corona.Data.Migrations
                         new
                         {
                             ProductId = 11,
+                            BrandId = 11,
                             CategoryId = 4,
                             Date = new DateTime(2020, 12, 26, 12, 30, 50, 0, DateTimeKind.Unspecified),
                             Description = "Partikül, tükürük, damlacık, toz ve benzeri küçük cisimlerin yüzünüze (göz, ağız, burun) gelmesini ve sizden karşı tarafa gitmesini engeller.Şeffaf siperliksağlık ürünleri yönetmenliğine uygun; kırılmaz, esnet Pet(polietilen) malzemeden üretilmiştir. Karşılıklı konuşma, işlem (muayene, karşılama, satış, toplantı vb.) esnasında kişisel kullanım içindir.Hafiftir, kullanımı kolaydır, çıkarılıp takılması basittir.  Esnek materyal kullanıldığından yetişkin her başa uyum sağlar. Görüş alanınızı kapatmaz, görüş alanı geniştir. Işık geçirgenliği yüksek olduğundan görüntü kaybına neden olmaz. Ürün dezenfekte edilmiş olarak gönderilir ve dezenfekte edilerek tekrar kullanılabilir.",
@@ -572,7 +888,7 @@ namespace Anti_Corona.Data.Migrations
                             IsOnSale = true,
                             Price = 59.899999999999999,
                             Stock = 200,
-                            Title = "Medizer Novid Siyah Gözlüklü Yüz Koruyucu Siperli"
+                            Title = "Medizer Novid Siyah Gözlüklü Yüz Koruyucu Siperlik"
                         });
                 });
 
@@ -614,6 +930,12 @@ namespace Anti_Corona.Data.Migrations
 
             modelBuilder.Entity("Anti_Corona.Entity.Product", b =>
                 {
+                    b.HasOne("Anti_Corona.Entity.Brand", "Brand")
+                        .WithMany("Products")
+                        .HasForeignKey("BrandId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Anti_Corona.Entity.Category", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryId")

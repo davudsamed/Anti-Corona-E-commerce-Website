@@ -21,5 +21,8 @@ namespace Anti_Corona.Entity
         public List<Comment> Comments { get; set; } 
         public List<Image> Images { get; set; }
 
+        public int BrandId { get; set; }
+        public Brand Brand { get; set; }
+
     }
 }

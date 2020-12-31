@@ -29,3 +29,4 @@ namespace Anti_Corona.Data.Concrete.EFCore
 
     }
 }
+

@@ -1,4 +1,5 @@
 ﻿using Anti_Corona.Business.Abstract;
+using Anti_Corona.Entity;
 using Anti_Corona.Web.Identity;
 using Anti_Corona.Web.Models;
 using Microsoft.AspNetCore.Identity;
@@ -17,17 +18,20 @@ namespace Anti_Corona.Web.Controllers
         private IProductService _productService;
         private IOrderService _orderService;
         private ICategoryService _categoryService;
+        private IBrandService _brandService;
         public AdminController(UserManager<User> userManager,
                                RoleManager<IdentityRole> roleManager,
                                IProductService productService,
                                IOrderService orderService,
-                               ICategoryService categoryService)
+                               ICategoryService categoryService,
+                               IBrandService brandService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _productService = productService;
             _orderService = orderService;
             _categoryService = categoryService;
+            _brandService = brandService;
         }
         public IActionResult Index()
         {
@@ -234,7 +238,7 @@ namespace Anti_Corona.Web.Controllers
                 Price = (double)product.Price,
                 Stock = product.Stock,
                 Title = product.Title,
-                imageUrl=product.Images[0].ImageUrl
+                imageUrl = product.Images[0].ImageUrl
             };
             ViewBag.Categories = _categoryService.GetAllCategories();
             return View(model);
@@ -250,7 +254,7 @@ namespace Anti_Corona.Web.Controllers
                 return View(editProduct);
             }
             var product = _productService.GetById(editProduct.ProductId);
-            if (product==null)
+            if (product == null)
             {
                 return NotFound();
             }
@@ -274,6 +278,69 @@ namespace Anti_Corona.Web.Controllers
             }
             return Redirect("/admin/ProductList");
 
+        }
+
+        public IActionResult BrandList()
+        {
+            return View(_brandService.GetBrands());
+
+        }
+        [HttpGet]
+        public IActionResult BrandCreate()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult BrandCreate(BrandModel brand)
+        {
+            var entity = new Brand()
+            {
+                Name = brand.Name,
+            };
+            _brandService.Create(entity);
+            return Redirect("/admin/BrandList");
+        }
+        [HttpGet]
+        public IActionResult BrandEdit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var brand = _brandService.GetByIdWithProducts((int)id);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            var model = new BrandModel()
+            {
+                BrandId = brand.Id,
+                Name = brand.Name,
+                products = brand.Products.ToList()
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult BrandEdit(BrandModel brandmodel)
+        {
+            var brand = _brandService.GetById(brandmodel.BrandId);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            brand.Name = brandmodel.Name;
+            _brandService.Update(brand);
+
+            return Redirect("/admin/BrandList");
+        }
+        public IActionResult BrandDelete(int BrandId)
+        {
+            var brand = _brandService.GetById(BrandId);
+            if (brand != null)
+            {
+                _brandService.Delete(brand);
+            }
+            return Redirect("/admin/BrandList");
         }
 
     }

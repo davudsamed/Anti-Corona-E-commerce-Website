@@ -86,6 +86,12 @@ namespace Anti_Corona.Web
 
             services.AddScoped<IOrderRepository, EfCoreOrderRepository>();
             services.AddScoped<IOrderService, OrderManager>();
+
+            services.AddScoped<IBrandRepository, EfCoreBrandRepository>();
+            services.AddScoped<IBrandService, BrandManager>();
+           
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
