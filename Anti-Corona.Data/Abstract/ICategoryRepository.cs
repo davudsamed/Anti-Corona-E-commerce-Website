@@ -8,5 +8,6 @@ namespace Anti_Corona.Data.Abstract
     public interface ICategoryRepository:IRepository<Category>
     {
         List<Category> GetAllCategories();
+        Category GetByIdWithProducts(int categoryId);
     }
 }

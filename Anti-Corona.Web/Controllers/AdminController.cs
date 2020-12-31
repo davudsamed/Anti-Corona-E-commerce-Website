@@ -19,6 +19,8 @@ namespace Anti_Corona.Web.Controllers
         private IOrderService _orderService;
         private ICategoryService _categoryService;
         private IBrandService _brandService;
+        private object category;
+
         public AdminController(UserManager<User> userManager,
                                RoleManager<IdentityRole> roleManager,
                                IProductService productService,
@@ -341,6 +343,71 @@ namespace Anti_Corona.Web.Controllers
                 _brandService.Delete(brand);
             }
             return Redirect("/admin/BrandList");
+        }
+        //category
+
+        public IActionResult CategoryList()
+        {
+            return View(_categoryService.GetAllCategories());
+
+        }
+        [HttpGet]
+        public IActionResult CategoryCreate()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CategoryCreate(CategoryModel category)
+        {
+            var entity = new Category()
+            {
+                Name = category.Name,
+            };
+            _categoryService.Create(entity);
+            return Redirect("/admin/CategoryList");
+        }
+        [HttpGet]
+        public IActionResult CategoryEdit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var category = _categoryService.GetByIdWithProducts((int)id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            var model = new CategoryModel()
+            {
+                CategoryId = category.CategoryId,
+                Name = category.Name,
+                products = category.Products.ToList()
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult CategoryEdit(CategoryModel categorymodel)
+        {
+            var category = _categoryService.GetById(categorymodel.CategoryId);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            category.Name = categorymodel.Name;
+            _categoryService.Update(category);
+
+            return Redirect("/admin/BrandList");
+        }
+        public IActionResult CategoryDelete(int CategoryId)
+        {
+            var category = _categoryService.GetById(CategoryId);
+            if (category != null)
+            {
+                _categoryService.Delete(category);
+            }
+            return Redirect("/admin/CategoryList");
         }
 
     }

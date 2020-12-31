@@ -1,5 +1,6 @@
 ﻿using Anti_Corona.Data.Abstract;
 using Anti_Corona.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,17 @@ namespace Anti_Corona.Data.Concrete.EFCore
             using (var context=new AntiCoronaContext())
             {
                 return context.Categories.ToList();
+            }
+        }
+
+        public Category GetByIdWithProducts(int categoryId)
+        {
+            using (var context = new AntiCoronaContext())
+            {
+                return context.Categories
+                    .Where(i => i.CategoryId == categoryId)
+                    .Include(i => i.Products)
+                    .FirstOrDefault();
             }
         }
     }
