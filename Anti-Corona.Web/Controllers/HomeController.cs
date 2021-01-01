@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Anti_Corona.Web.Models;
 using Anti_Corona.Business.Abstract;
+using Microsoft.Extensions.Localization;
 
 namespace Anti_Corona.Web.Controllers
 {
@@ -15,16 +16,17 @@ namespace Anti_Corona.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private IProductService _productService;
         private ICategoryService _categoryService;
-
         public HomeController(ILogger<HomeController> logger, IProductService productService,ICategoryService categoryService)
         {
             _logger = logger;
             _productService = productService;
             _categoryService = categoryService;
+            
         }
 
         public IActionResult Index()
         {
+
             ViewBag.Categories = _categoryService.GetAllCategories();
             return View(new IndexViewModel()
             {
@@ -42,11 +44,6 @@ namespace Anti_Corona.Web.Controllers
             return View();
         }
 
-
-        public IActionResult ShopingCard()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

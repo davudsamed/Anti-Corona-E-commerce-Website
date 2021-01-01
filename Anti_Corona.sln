@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anti-Corona.Web", "Anti-Corona.Web\Anti-Corona.Web.csproj", "{CDA71160-68A4-4166-AE3F-EDE04E20D9E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anti_Corona.Web", "Anti-Corona.Web\Anti_Corona.Web.csproj", "{CDA71160-68A4-4166-AE3F-EDE04E20D9E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anti-Corona.Entity", "Anti-Corona.Entity\Anti-Corona.Entity.csproj", "{A9070FC5-A965-4516-AC6B-80850D862379}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anti_Corona.Entity", "Anti-Corona.Entity\Anti_Corona.Entity.csproj", "{A9070FC5-A965-4516-AC6B-80850D862379}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anti-Corona.Business", "Anti-Corona.Business\Anti-Corona.Business.csproj", "{8E37CB8F-A862-429F-B13A-5EE77A7D920E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anti_Corona.Business", "Anti-Corona.Business\Anti_Corona.Business.csproj", "{8E37CB8F-A862-429F-B13A-5EE77A7D920E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anti-Corona.Data", "Anti-Corona.Data\Anti-Corona.Data.csproj", "{FBB58444-296B-496A-8CA1-5ED5B3724946}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anti_Corona.Data", "Anti-Corona.Data\Anti_Corona.Data.csproj", "{FBB58444-296B-496A-8CA1-5ED5B3724946}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

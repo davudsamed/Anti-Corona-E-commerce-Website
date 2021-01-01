@@ -16,7 +16,11 @@ using Microsoft.EntityFrameworkCore;
 using Anti_Corona.Data.Abstract;
 using Anti_Corona.Business.Abstract;
 using Anti_Corona.Business.Concrete;
+
 using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.Extensions.Options;
 
 namespace Anti_Corona.Web
 {
@@ -32,10 +36,14 @@ namespace Anti_Corona.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLocalization(opt => { opt.ResourcesPath = "Resources"; });
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
+
+            
+
             services.AddControllersWithViews();
-            //services.AddDbContext<AntiCoronaContext>(options =>
-            // options.UseSqlServer(
-            //     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDbContext<ACContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -89,19 +97,19 @@ namespace Anti_Corona.Web
 
             services.AddScoped<IBrandRepository, EfCoreBrandRepository>();
             services.AddScoped<IBrandService, BrandManager>();
-           
+
 
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration,UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IConfiguration configuration, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
         {
-            var cultureInfo = new CultureInfo("tr-TR");
+           /* var cultureInfo = new CultureInfo("tr-TR");
             cultureInfo.NumberFormat.NumberDecimalSeparator = ".";
 
             CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
-            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;*/
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -119,18 +127,29 @@ namespace Anti_Corona.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
+            var supportedCultures = new[] { "en", "tr"};
+            var localizationOptions = new RequestLocalizationOptions()
+                .SetDefaultCulture(supportedCultures[0])
+                .AddSupportedCultures(supportedCultures)
+                .AddSupportedUICultures(supportedCultures);
+
+            app.UseRequestLocalization(localizationOptions);
+
+
+
+
             app.UseEndpoints(endpoints =>
             {
-        
-                endpoints.MapControllerRoute(
-           name: "shop",
-           pattern: "shop/{url?}",
-           defaults: new { controller = "Shop", action = "Index" }
-        );
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+
+                    endpoints.MapControllerRoute(
+               name: "shop",
+               pattern: "shop/{url?}",
+               defaults: new { controller = "Shop", action = "Index" }
+                );
+                    endpoints.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                });
             SeedIdentity.Seed(userManager, roleManager, configuration).Wait();
         }
     }

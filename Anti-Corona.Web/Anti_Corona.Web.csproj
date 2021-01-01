@@ -1,11 +1,13 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Anti_Corona.Data</RootNamespace>
+    <RootNamespace>Anti_Corona.Web</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
       <PrivateAssets>all</PrivateAssets>
@@ -19,7 +21,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Anti-Corona.Entity\Anti-Corona.Entity.csproj" />
+    <ProjectReference Include="..\Anti-Corona.Business\Anti_Corona.Business.csproj" />
+    <ProjectReference Include="..\Anti-Corona.Data\Anti_Corona.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\dezenfektanlar\" />
+    <Folder Include="wwwroot\img\Eldiven\" />
+    <Folder Include="wwwroot\img\latest-product\" />
+    <Folder Include="wwwroot\img\product\" />
+    <Folder Include="wwwroot\img\siperlik\" />
   </ItemGroup>
 
 </Project>
