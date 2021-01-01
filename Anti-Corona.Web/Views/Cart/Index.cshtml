@@ -5,10 +5,10 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Alışveriş Sepeti</h2>
+                    <h2>@localizer["Alışveriş Sepeti"]</h2>
                     <div class="breadcrumb__option">
-                        <a href="/">Anasayfa</a>
-                        <span>Alışveriş Sepeti</span>
+                        <a href="/">@localizer["Anasayfa"]</a>
+                        <span>@localizer["Alışveriş Sepeti"]</span>
                     </div>
                 </div>
             </div>
@@ -28,10 +28,10 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">Ürünler</th>
-                                    <th>Fiyat</th>
-                                    <th>Miktar</th>
-                                    <th>Toplam</th>
+                                    <th class="shoping__product">@localizer["Ürünler"]</th>
+                                    <th>@localizer["Fiyat"]</th>
+                                    <th>@localizer["Miktar"]</th>
+                                    <th>@localizer["Toplam"]</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
-                        <a href="/shop/index" class="primary-btn cart-btn">Alışverişe Devam Et</a>
+                        <a href="/shop/index" class="primary-btn cart-btn">@localizer["Alışverişe Devam Et"]</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -83,9 +83,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
-                        <h5>Sepet Toplamı</h5>
+                        <h5>@localizer["Sepet Toplamı"]</h5>
                         <ul>
-                            <li>Toplam <span>@Model.total.ToString("c")</span></li>
+                            <li>@localizer["Toplam "]<span>@Model.total.ToString("c")</span></li>
                         </ul>
                         <a href="order/index" class="primary-btn">Satın Al</a>
                     </div>
@@ -94,9 +94,9 @@
         }
         else
         {
-            <div class="alert alert-warning" role="alert">
-                Sepete herhangi bir ürün eklenmedi ! <a href="/shop" class="alert-link">Mağazaya</a> gidin.
-            </div>
+    <div class="alert alert-warning" role="alert">
+        @localizer["Sepete herhangi bir ürün eklenmedi!"]  <a href="/shop" class="alert-link">@localizer["Mağazaya"]</a> @localizer["Gidin"] .
+    </div>
         }
     </div>
 </section>

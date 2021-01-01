@@ -7,7 +7,7 @@
                 <div class="easion-card-icon">
                     <i class="fas fa-chart-bar"></i>
                 </div>
-                <div class="easion-card-title"> Complex layout </div>
+                <div class="easion-card-title">@localizer["Karmaşık Düzen"]  </div>
             </div>
             <div class="card-body ">
                 <form asp-controller="Admin" asp-action="ProductEdit" method="POST">
@@ -19,28 +19,28 @@
                         <div class="form-group col-md-6">
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="inputEmail4">Başlık</label>
+                                    <label for="inputEmail4">@localizer["Başlık"]</label>
                                     <input type="text" class="form-control" asp-for="Title" placeholder="Başlık">
                                     <span asp-validation-for="Title" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <label for="inputEmail4">Fiyat (₺)</label>
+                                    <label for="inputEmail4">@localizer["Fiyat (₺)"]</label>
                                     <input type="number" min="0.5" step=0.1 class="form-control" asp-for="Price" placeholder="Fiyat">
                                     <span asp-validation-for="Price" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <label for="inputEmail4">Stok</label>
+                                    <label for="inputEmail4">@localizer["Stok"]</label>
                                     <input min="0" type="number" class="form-control" asp-for="Stock" placeholder="Stok">
                                     <span asp-validation-for="Stock" class="text-danger"></span>
                                 </div>
                                 <div class="form-group col-md-2">
-                                    <label for="inputEmail4">Ürün Id</label>
+                                    <label for="inputEmail4">@localizer["Ürün Id"]</label>
                                     <input type="number" readonly class="form-control" asp-for="ProductId" placeholder="Ürün Id">
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="inputEmail4">Kategori</label>
+                                    <label for="inputEmail4">@localizer["Kategori"]</label>
                                     <select class="form-control" name="categoryId">
-                                        <option value="">Kategori Seçiniz</option>
+                                        <option value="">@localizer["Kategori Seçiniz"]</option>
                                         @foreach (var item in ViewBag.Categories)
                                         {
                                             if (item.CategoryId == Convert.ToInt32(Model.categoryId))
@@ -53,7 +53,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="inputAddress">Ürün Açıklaması</label>
+                                    <label for="inputAddress">@localizer["Ürün Açıklaması"]</label>
                                     <textarea class="form-control" asp-for="Description" rows="10"></textarea>
                                     <span asp-validation-for="Description" class="text-danger"></span>
                                 </div>
@@ -62,19 +62,19 @@
                                         <div class="col-md-6 form-group ">
                                             <div class="custom-control custom-checkbox">
                                                 <input asp-for="isOnSale" type="checkbox" class="custom-control-input">
-                                                <label class="custom-control-label" asp-for="isOnSale">Satışta</label>
+                                                <label class="custom-control-label" asp-for="isOnSale">@localizer["Satışta"]</label>
                                             </div>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <div class="custom-control custom-checkbox">
                                                 <input asp-for="isHomePage" type="checkbox" class="custom-control-input">
-                                                <label class="custom-control-label" asp-for="isHomePage">Anasayfa Ürünü</label>
+                                                <label class="custom-control-label" asp-for="isHomePage">@localizer["Anasayfa Ürünü"]</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary float-right">Değişikleri Kaydet</button>
+                            <button type="submit" class="btn btn-primary float-right">@localizer["Değişikleri Kaydet"]</button>
 
                         </div>
 

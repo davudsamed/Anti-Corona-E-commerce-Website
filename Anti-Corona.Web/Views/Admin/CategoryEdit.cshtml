@@ -7,7 +7,7 @@
                 <div class="easion-card-icon">
                     <i class="fas fa-chart-bar"></i>
                 </div>
-                <div class="easion-card-title">Kategoriler ve Kategorilere Ait Ürünler </div>
+                <div class="easion-card-title">@localizer["Kategoriler ve Kategorilere Ait Ürünler "]</div>
             </div>
             <div class="card-body ">
                 <form asp-controller="Admin" asp-action="CategoryEdit" method="POST">
@@ -21,20 +21,20 @@
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary float-right">Değişikleri Kaydet</button>
+                            <button type="submit" class="btn btn-primary float-right">@localizer["Değişikleri Kaydet"]</button>
                         </div>
                         <div class="form-group col-md-8">
                             <table id="example" class="table table-hover table-in-card dt-responsive" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Ürun Id</th>
-                                        <th scope="col">Ürün Başlığı</th>
-                                        <th scope="col">Fiyatı</th>
-                                        <th scope="col">Stok</th>
-                                        <th scope="col">Anasayfa</th>
-                                        <th scope="col">Satışta</th>
-                                        <th scope="col">Yayın Tarihi</th>
-                                        <th scope="col">Düzenle/Sil</th>
+                                        <th scope="col">@localizer["Ürun Id"]</th>
+                                        <th scope="col">@localizer["Ürün Başlığı"]</th>
+                                        <th scope="col">@localizer["Fiyatı"]</th>
+                                        <th scope="col">@localizer["Stok"]</th>
+                                        <th scope="col">@localizer["Anasayfa"]</th>
+                                        <th scope="col">@localizer["Satışta"]</th>
+                                        <th scope="col">@localizer["Yayın Tarihi"]</th>
+                                        <th scope="col">@localizer["Düzenle/Sil"]</th>
                                     </tr>
                                 </thead>
                                 <tbody>

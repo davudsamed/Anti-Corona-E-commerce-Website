@@ -1,7 +1,7 @@
 ﻿@model List<Product>
 @{ Layout = "_LayoutAdmin"; }
 <div class="container-fluid">
-    <h1 class="dash-title">Ürünler</h1>
+    <h1 class="dash-title">@localizer["Ürünler"]</h1>
     <div class="row">
         <div class="col-lg-12">
             <div class="card easion-card">
@@ -9,22 +9,22 @@
                     <div class="easion-card-icon">
                         <i class="fas fa-table"></i>
                     </div>
-                    <div class="easion-card-title">Ürün Bilgileri</div>
+                    <div class="easion-card-title">@localizer["Ürün Bilgileri"]</div>
                 </div>
                 <div class="card-body ">
                     <table id="example" class="table table-hover table-in-card dt-responsive" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">Ürun Id</th>
-                                <th scope="col">Resim</th>
-                                <th scope="col">Ürün Başlığı</th>
-                                <th scope="col">Fiyatı</th>
-                                <th scope="col">Stok</th>
-                                <th scope="col">Anasayfa</th>
-                                <th scope="col">Satışta</th>
-                                <th scope="col">Yayın Tarihi</th>
-                                <th scope="col">Kategorisi</th>
-                                <th scope="col">Düzenle/Sil</th>
+                                <th scope="col">@localizer["Ürun Id"]</th>
+                                <th scope="col">@localizer["Resim"]</th>
+                                <th scope="col">@localizer["Ürün Başlığı"]</th>
+                                <th scope="col">@localizer["Fiyatı"]</th>
+                                <th scope="col">@localizer["Stok"]</th>
+                                <th scope="col">@localizer["Anasayfa"]</th>
+                                <th scope="col">@localizer["Satışta"]</th>
+                                <th scope="col">@localizer["Yayın Tarihi"]</th>
+                                <th scope="col">@localizer["Kategorisi"]</th>
+                                <th scope="col">@localizer["Düzenle/Sil"]</th>
                             </tr>
                         </thead>
                         <tbody>
