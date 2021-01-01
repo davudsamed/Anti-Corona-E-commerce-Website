@@ -2,12 +2,12 @@
 @{ Layout = "_LayoutAdmin"; }
 
 <div class="container-fluid">
-    <h1 class="dash-title">Kategoriler</h1>
+    <h1 class="dash-title">@localizer["Kategoriler"]</h1>
     <div class="row">
         <div class="col-lg-12">
             <p>
                 <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                    Kategori Ekle
+                    @localizer["Kategori Ekle"]
                 </a>
             </p>
             <div class="collapse" id="collapseExample">
@@ -16,11 +16,11 @@
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <div class="form-group row">
                             <div class="col-sm-12 pb-3">
-                                <label>Kategori Adı</label>
+                                <label>@localizer["Kategori Adı"]</label>
                                 <input class="form-control" name="Name" />
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Ekle</button>
+                        <button type="submit" class="btn btn-primary">@localizer["Ekle"]</button>
                     </form>
                 </div>
             </div>
@@ -29,15 +29,15 @@
                     <div class="easion-card-icon">
                         <i class="fas fa-table"></i>
                     </div>
-                    <div class="easion-card-title">Kategori Bilgileri</div>
+                    <div class="easion-card-title">@localizer["Kategori Bilgileri"]</div>
                 </div>
                 <div class="card-body ">
                     <table class="table table-hover table-in-card">
                         <thead>
                             <tr>
-                                <th scope="col">Kategori Id</th>
-                                <th scope="col">Kategori Adı</th>
-                                <th scope="col">Düzenle/Sil</th>
+                                <th scope="col">@localizer["Kategori Id"]</th>
+                                <th scope="col">@localizer["Kategori Adı"]</th>
+                                <th scope="col">@localizer["Düzenle/Sil"]</th>
                             </tr>
                         </thead>
                         <tbody>
