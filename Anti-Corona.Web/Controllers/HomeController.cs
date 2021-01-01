@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Anti_Corona.Web.Models;
 using Anti_Corona.Business.Abstract;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 
 namespace Anti_Corona.Web.Controllers
@@ -34,10 +36,6 @@ namespace Anti_Corona.Web.Controllers
             });
         }
 
-        public IActionResult Checkout()
-        {
-            return View();
-        }
 
         public IActionResult Contact()
         {
@@ -50,5 +48,17 @@ namespace Anti_Corona.Web.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        public IActionResult CultureManagement(string Culture, string returnUrl)
+        {
+            Response.Cookies.Append(CookieRequestCultureProvider.DefaultCookieName, CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(Culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(30) });
+            return LocalRedirect(returnUrl);
+        }
+
+
+
+
     }
 }

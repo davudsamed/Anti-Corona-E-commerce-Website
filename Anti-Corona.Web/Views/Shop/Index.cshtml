@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Anti Corona Mağaza</h2>
+                    <h2>@localizer["Anti Corona Mağaza"]</h2>
                     <div class="breadcrumb__option">
-                        <a href="/">Anasayfa</a>
-                        <span>Mağaza</span>
+                        <a href="/">@localizer["Anasayfa"]</a>
+                        <span>@localizer["Mağaza"]</span>
                     </div>
                 </div>
             </div>
@@ -24,16 +24,16 @@
             <div class="col-lg-3 col-md-5">
                 <div class="sidebar">
                     <div class="sidebar__item">
-                        <h4>Kategoriler</h4>
+                        <h4>@localizer["Kategoriler"]</h4>
                         <ul>
                             @foreach (var item in ViewBag.Categories)
                             {
-                                <li><a href="/Shop/@item.Name">@item.Name</a></li>
+                                <li><a href="/Shop/@item.Name">@(localizer[$"{@item.Name}"])</a></li>
                             }
                         </ul>
                     </div>
                     <div class="sidebar__item">
-                        <h4>Fıyat</h4>
+                        <h4>@localizer["Fıyat"]</h4>
                         <div class="price-range-wrap">
                             <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content" data-min="10" data-max="540">
                                 <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
@@ -49,40 +49,40 @@
                         </div>
                     </div>
                     <div class="sidebar__item sidebar__item__color--option">
-                        <h4>Renkler</h4>
+                        <h4>@localizer["Renkler"]</h4>
                         <div class="sidebar__item__color sidebar__item__color--white">
                             <label for="white">
-                                Beyaz
+                                @localizer["Beyaz"]
                                 <input type="radio" id="white">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--gray">
                             <label for="gray">
-                                Gri
+                                @localizer["Gri"]
                                 <input type="radio" id="gray">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--red">
                             <label for="red">
-                                Kırmızı
+                                @localizer["Kırmızı"]
                                 <input type="radio" id="red">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--black">
                             <label for="black">
-                                Siyah
+                                @localizer["Siyah"]
                                 <input type="radio" id="black">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--blue">
                             <label for="blue">
-                                Mavi
+                                @localizer["Mavi"]
                                 <input type="radio" id="blue">
                             </label>
                         </div>
                         <div class="sidebar__item__color sidebar__item__color--green">
                             <label for="green">
-                                Yeşil
+                                @localizer["Yeşil"]
                                 <input type="radio" id="green">
                             </label>
                         </div>
@@ -94,7 +94,7 @@
             <div class="col-lg-9 col-md-7">
                 <div class="product__discount">
                     <div class="section-title product__discount__title">
-                        <h2>En Çok Tercih Edilenler</h2>
+                        <h2>@localizer["En Çok Tercih Edilen Ürünler"]</h2>
                     </div>
                     <div class="row">
                         <div class="product__discount__slider owl-carousel">
@@ -111,7 +111,7 @@
                                             </ul>
                                         </div>
                                         <div class="product__discount__item__text">
-                                            <span>@item.CategoryName</span>
+                                            <span>@(localizer[$"{@item.CategoryName}"])</span>
                                             <h5><a href="/shop/details/@item.ProductId">@item.Title</a></h5>
                                             <div class="product__item__price">@item.Price.ToString("c")</div>
                                         </div>
@@ -127,19 +127,19 @@
                         <div class="col-lg-4 col-md-5">
                             <div class="filter__sort">
                                 <select>
-                                    <option value="0">Gelişmiş sıralama</option>
-                                    <option value="0">En düşük fiyat</option>
-                                    <option value="0">En yüksek fiyat</option>
-                                    <option value="0">En yeniler</option>
-                                    <option value="0">En çok satanlar</option>
-                                    <option value="0">En çok beğenilenler</option>
-                                    <option value="0">En çok değerlendirilenler</option>
+                                    <option value="0">@localizer["Gelişmiş sıralama"]</option>
+                                    <option value="0">@localizer["En düşük fiyat"]</option>
+                                    <option value="0">@localizer["En yüksek fiyat"]</option>
+                                    <option value="0">@localizer["En yeniler"]</option>
+                                    <option value="0">@localizer["En çok satanlar"]</option>
+                                    <option value="0">@localizer["En çok beğenilenler"]</option>
+                                    <option value="0">@localizer["En çok değerlendirilenler"]</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4">
                             <div class="filter__found">
-                                <h6><span>@Model.products.Count</span>Ürün bulundu</h6>
+                                <h6><span>@Model.products.Count</span>@localizer["Ürün bulundu"]</h6>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-3">

@@ -2,12 +2,12 @@
 <div class="hero__categories">
     <div class="hero__categories__all">
         <i class="fa fa-bars"></i>
-        <span>Tüm Kategoriler</span>
+        <span>@localizer["Tüm Kategoriler"]</span>
     </div>
     <ul>
         @foreach (var item in Model)
         {
-            <li> <a href="/Shop/@item.Name">@item.Name</a></li>
+            <li> <a href="/Shop/@item.Name">@(localizer[$"{@item.Name}"])</a></li>
         }
     </ul>
 </div>

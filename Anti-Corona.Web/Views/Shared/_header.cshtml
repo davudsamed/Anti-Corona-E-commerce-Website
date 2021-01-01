@@ -1,4 +1,12 @@
-﻿<header class="header">
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@inject Microsoft.Extensions.Options.IOptions<Microsoft.AspNetCore.Builder.RequestLocalizationOptions> LocOptions
+
+@{
+    var culture = Context.Features.Get<Microsoft.AspNetCore.Localization.IRequestCultureFeature>();
+    var cultureList = LocOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.Name }).ToList();
+    var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path}{Context.Request.QueryString}";
+}
+<header class="header">
     <div class="header__top">
         <div class="container">
             <div class="row">
@@ -6,7 +14,7 @@
                     <div class="header__top__left">
                         <ul>
                             <li><i class="fa fa-envelope"></i>DavudOzgurSelim@sakarya.edu.tr</li>
-                            <li>₺99 Üzeri Ücretsiz Kargo!</li>
+                            <li>@localizer["₺99 Üzeri Ücretsiz Kargo!"]</li>
                         </ul>
                     </div>
                 </div>
@@ -20,27 +28,28 @@
                         </div>
                         <div class="header__top__right__language">
                             <img src="/img/language.png" alt="">
-                            <div>Türkçe</div>
-                            <span class="arrow_carrot-down"></span>
-                            <ul>
-                                <li><a href="#">Türkçe</a></li>
-                                <li><a href="#">İngilizce</a></li>
-                            </ul>
+                            @*<div>@localizer["Türkçe"]</div>
+                            <span class="arrow_carrot-down"></span>*@
+                            <div >
+                                <form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
+                                    <select name="Culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit();"></select>
+                                </form>
+                            </div>
                         </div>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div class="header__top__right__auth mr-2">
-                                <a href="/account/logout"><i class="fa fa-user"></i>Çıkış Yap</a>
+                                <a href="/account/logout"><i class="fa fa-user"></i>@localizer["Çıkış Yap"]</a>
                             </div>
                         }
                         else
 
                         {
                             <div class="header__top__right__auth mr-2">
-                                <a href="/account/login"><i class="fa fa-user"></i>Giriş</a>
+                                <a href="/account/login"><i class="fa fa-user"></i>@localizer["Giriş"]</a>
                             </div>
                             <div class="header__top__right__auth">
-                                <a href="/account/register"><i class="fa fa-user"></i>Kayıt Ol</a>
+                                <a href="/account/register"><i class="fa fa-user"></i>@localizer["Kayıt Ol"]</a>
                             </div>
                         }
 
@@ -59,9 +68,9 @@
             <div class="col-lg-6 text-center">
                 <nav class="header__menu">
                     <ul>
-                        <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
-                        <li><a asp-area="" asp-controller="Shop" asp-action="Index">Mağaza</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a></li>
+                        <li class="active"><a asp-area="" asp-controller="Home" asp-action="Index">@localizer["Ana Sayfa"]</a></li>
+                        <li><a asp-area="" asp-controller="Shop" asp-action="Index">@localizer["Mağaza"]</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">@localizer["İletişim"]</a></li>
                     </ul>
                 </nav>
             </div>
@@ -74,3 +83,7 @@
         </div>
     </div>
 </header>
+@*<ul>
+        <li><a href="#">@localizer["Türkçe"]</a></li>
+        <li><a href="#">@localizer["İngilizce"]</a></li>
+    </ul>*@

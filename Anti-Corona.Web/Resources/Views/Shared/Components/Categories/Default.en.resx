@@ -117,28 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Adı" xml:space="preserve">
-    <value>Name</value>
+  <data name="Dezenfektanlar" xml:space="preserve">
+    <value>Disinfectants</value>
   </data>
-  <data name="Düzenle/Sil" xml:space="preserve">
-    <value>Edit/ Delete</value>
+  <data name="Eldivenler" xml:space="preserve">
+    <value>Gloves</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-Mail</value>
+  <data name="Maskeler" xml:space="preserve">
+    <value>Masks</value>
   </data>
-  <data name="Kullanıcı Bilgileri" xml:space="preserve">
-    <value>User Information</value>
+  <data name="Siperlikler" xml:space="preserve">
+    <value>Visors</value>
   </data>
-  <data name="Kullanıcılar" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="Rolü" xml:space="preserve">
-    <value>Role</value>
-  </data>
-  <data name="Soyadı" xml:space="preserve">
-    <value>Surname</value>
-  </data>
-  <data name="Telefon Numarası" xml:space="preserve">
-    <value>Telephone Number</value>
+  <data name="Tüm Kategoriler" xml:space="preserve">
+    <value>All Categories</value>
   </data>
 </root>

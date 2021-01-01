@@ -117,28 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Adı" xml:space="preserve">
-    <value>Name</value>
+  <data name="1 Gün İçinde Kargo" xml:space="preserve">
+    <value>1 Gün İçinde Kargo</value>
   </data>
-  <data name="Düzenle/Sil" xml:space="preserve">
-    <value>Edit/ Delete</value>
+  <data name="Anasayfa" xml:space="preserve">
+    <value>Anasayfa</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-Mail</value>
+  <data name="Anti Corona Mağaza" xml:space="preserve">
+    <value>Anti Corona Mağaza</value>
   </data>
-  <data name="Kullanıcı Bilgileri" xml:space="preserve">
-    <value>User Information</value>
+  <data name="Açıklama" xml:space="preserve">
+    <value>Açıklama</value>
   </data>
-  <data name="Kullanıcılar" xml:space="preserve">
-    <value>User</value>
+  <data name="Bilgi" xml:space="preserve">
+    <value>Bilgi</value>
   </data>
-  <data name="Rolü" xml:space="preserve">
-    <value>Role</value>
+  <data name="En Yeni Ürünler" xml:space="preserve">
+    <value>En Yeni Ürünler</value>
   </data>
-  <data name="Soyadı" xml:space="preserve">
-    <value>Surname</value>
+  <data name="Mağaza" xml:space="preserve">
+    <value>Mağaza</value>
   </data>
-  <data name="Telefon Numarası" xml:space="preserve">
-    <value>Telephone Number</value>
+  <data name="SEPETE EKLE" xml:space="preserve">
+    <value>SEPETE EKLE</value>
+  </data>
+  <data name="Yorumlar" xml:space="preserve">
+    <value>Yorumlar</value>
+  </data>
+  <data name="Ürün Detayı" xml:space="preserve">
+    <value>Ürün Detayı</value>
+  </data>
+  <data name="Ürün Hakkında Açıklama" xml:space="preserve">
+    <value>Ürün Hakkında Açıklama</value>
+  </data>
+  <data name="Ürün Hakkında Bilgi" xml:space="preserve">
+    <value>Ürün Hakkında Bilgi</value>
+  </data>
+  <data name="Ürün Yorumları" xml:space="preserve">
+    <value>Ürün Yorumları</value>
+  </data>
+  <data name="Ürünü Paylaş" xml:space="preserve">
+    <value>Ürünü Paylaş</value>
   </data>
 </root>

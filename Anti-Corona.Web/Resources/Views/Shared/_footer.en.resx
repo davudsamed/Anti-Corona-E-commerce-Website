@@ -117,28 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Adı" xml:space="preserve">
-    <value>Name</value>
+  <data name="Adres: Kemalpaşa Esentepe Kampüsü, Üniversite Cd., 54050 Serdivan/Sakarya" xml:space="preserve">
+    <value>Adress: Kemalpasa Esentepe Campus, University St., 54050 Serdivan/Sakarya</value>
   </data>
-  <data name="Düzenle/Sil" xml:space="preserve">
-    <value>Edit/ Delete</value>
+  <data name="Biz Kimiz" xml:space="preserve">
+    <value>Who Are We?</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-Mail</value>
+  <data name="Email: DavudOzgurSelim@sakarya.edu.tr" xml:space="preserve">
+    <value>Email: DavudOzgurSelim@sakarya.edu.tr</value>
   </data>
-  <data name="Kullanıcı Bilgileri" xml:space="preserve">
-    <value>User Information</value>
+  <data name="Emailini Gir" xml:space="preserve">
+    <value>Write Your E-mail</value>
   </data>
-  <data name="Kullanıcılar" xml:space="preserve">
-    <value>User</value>
+  <data name="Görüşler" xml:space="preserve">
+    <value>Opinions</value>
   </data>
-  <data name="Rolü" xml:space="preserve">
-    <value>Role</value>
+  <data name="Güvenli Alışveriş" xml:space="preserve">
+    <value>Secure Shopping</value>
   </data>
-  <data name="Soyadı" xml:space="preserve">
-    <value>Surname</value>
+  <data name="Güvenlik Politikası" xml:space="preserve">
+    <value>Security Policy</value>
   </data>
-  <data name="Telefon Numarası" xml:space="preserve">
-    <value>Telephone Number</value>
+  <data name="Haber Bültenimize Katılın !" xml:space="preserve">
+    <value>Join Our Newsletter!</value>
+  </data>
+  <data name="Hakkımızda" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="Kargo Hakkında" xml:space="preserve">
+    <value>About Shipping</value>
+  </data>
+  <data name="Kayıt Ol!" xml:space="preserve">
+    <value>Register!</value>
+  </data>
+  <data name="Linkler" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="Mağazamız Hakkında" xml:space="preserve">
+    <value>About Our Shop</value>
+  </data>
+  <data name="Mağazamız ve özel tekliflerimizle ilgili E-mail bildirimleri alın" xml:space="preserve">
+    <value>Receive E-mail notifications about our store and special offers</value>
+  </data>
+  <data name="Projelerimiz" xml:space="preserve">
+    <value>Our Projects</value>
+  </data>
+  <data name="Servislerimiz" xml:space="preserve">
+    <value>Our Services</value>
+  </data>
+  <data name="Site Haritası" xml:space="preserve">
+    <value>Sitemap</value>
+  </data>
+  <data name="Telefon: +90 541 058 61 35" xml:space="preserve">
+    <value>Phone: +90 541 058 61 35</value>
+  </data>
+  <data name="Tüm Hakları Saklıdır" xml:space="preserve">
+    <value>All Rights Reserved</value>
+  </data>
+  <data name="Yenilikler" xml:space="preserve">
+    <value>What's new</value>
+  </data>
+  <data name="İletişim" xml:space="preserve">
+    <value>Contact</value>
   </data>
 </root>

@@ -8,11 +8,11 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <div class="breadcrumb__text">
-                    <h2>Anti Corona Mağaza</h2>
+                    <h2>@localizer["Anti Corona Mağaza"]</h2>
                     <div class="breadcrumb__option">
-                        <a href="/home/index">Anasayfa</a>
-                        <a href="/shop/index">Mağaza</a>
-                        <span>Ürün Detayı</span>
+                        <a href="/home/index">@localizer["Anasayfa"]</a>
+                        <a href="/shop/index">@localizer["Mağaza"]</a>
+                        <span>@localizer["Ürün Detayı"]</span>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
             </div>
             <div class="col-lg-6 col-md-6">
                 <div class="product__details__text">
-                    <h3>@Model.Title</h3>
+                    <h3>@Model.Title</h3> @*Dil Ayarlaması Bakılacak*@
                     <div class="product__details__rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="product__details__price">@Convert.ToDouble(Model.Price).ToString("c")</div>
                     <p>
-                        @Model.Description
+                        @Model.Description @*Dil ayarlaması bakılacak*@
                     </p>
                     <form asp-controller="Cart" asp-action="AddToCart" method="post">
                         <div class="product__details__quantity">
@@ -65,15 +65,15 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="primary-btn">SEPETE EKLE</button>
+                        <button type="submit" class="primary-btn">@localizer["SEPETE EKLE"]</button>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                     </form>
 
                     <ul>
-                        <li><b>Stok Durumu</b> <span>@Model.Stock</span></li>
-                        <li><b>Kargo</b> <span>1 Gün İçinde Kargo</span></li>
+                        <li><b>@localizer["Stok Durumu"]</b> <span>@Model.Stock</span></li>
+                        <li><b>@localizer["Kargo"]</b> <span>@localizer["1 Gün İçinde Kargo"]</span></li>
                         <li>
-                            <b>Ürünü Paylaş</b>
+                            <b>@localizer["Ürünü Paylaş"]</b>
                             <div class="share">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -89,29 +89,29 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
-                               aria-selected="true">Açıklama</a>
+                               aria-selected="true">@localizer["Açıklama"]</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
-                               aria-selected="false">Bilgi</a>
+                               aria-selected="false">@localizer["Bilgi"]</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab"
-                               aria-selected="false">Yorumlar<span>(@Model.Comments.Count)</span></a>
+                               aria-selected="false">@localizer["Yorumlar"]<span>(@Model.Comments.Count)</span></a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Ürün Hakkında Açıklama</h6>
+                                <h6>@localizer["Ürün Hakkında Açıklama"]</h6>
                                 <p>
-                                    @Model.Description;
+                                    @Model.Description; @*Ayarlanacak*@
                                 </p>
                             </div>
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Ürün Hakkında Bilgi</h6>
+                                <h6>@localizer["Ürün Hakkında Bilgi"]</h6>
                                 <p>
                                     Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
                                     Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
@@ -129,16 +129,17 @@
                         </div>
                         <div class="tab-pane" id="tabs-3" role="tabpanel">
                             <div class="product__details__tab__desc">
-                                <h6>Ürün Yorumları</h6>
-
+                                <h6>@localizer["Ürün Yorumları"]</h6>
+                                <ul>
                                 @foreach (var comment in Model.Comments)
                                 {
-                                    <p>
-                                        @comment.Description
-                                    </p>
-                                }
-                                
+                                    
+                                        <li>@comment.Description @*Buralara bakarız*@</li>
+                                    <hr />
+                                    
 
+                                }
+                            </ul>
                             </div>
                         </div>
                     </div>
@@ -154,28 +155,28 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title related__product__title">
-                    <h2>En Yeni Ürünler</h2>
+                    <h2>@localizer["En Yeni Ürünler"]</h2>
                 </div>
             </div>
         </div>
         <div class="row">
             @foreach (var item in ViewBag.RelatedProducts)
             {
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="/img/featured/@item.Images[0].ImageUrl">
-                        <ul class="product__item__pic__hover">
-                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="/shop/details/@item.ProductId">@item.Title</a></h6>
-                        <h5>@item.Price.ToString("c")</h5>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="/img/featured/@item.Images[0].ImageUrl">
+                            <ul class="product__item__pic__hover">
+                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="/shop/details/@item.ProductId">@item.Title</a></h6> @* Bakılacak*@
+                            <h5>@item.Price.ToString("c")</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
             }
         </div>
     </div>

@@ -8,36 +8,36 @@
                 <div class="easion-card-icon">
                     <i class="fas fa-chart-bar"></i>
                 </div>
-                <div class="easion-card-title"> Complex layout </div>
+                <div class="easion-card-title">@localizer["Kullanıcı Düzenle"]  </div>
             </div>
             <div class="card-body ">
                 <form asp-controller="Admin" asp-action="UserEdit" method="POST">
                     <input type="hidden" name="UserId" value="@Model.UserId">
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="inputEmail4">Adı</label>
-                            <input type="text"  class="form-control" asp-for="FirstName" placeholder="Adı">
+                            <label for="inputEmail4">@localizer["Adı"]</label>
+                            <input type="text"  class="form-control" asp-for="FirstName" placeholder="@localizer["Adı"]">
                             <span asp-validation-for="FirstName" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputEmail4">Soyadı</label>
-                            <input type="text" class="form-control" asp-for="LastName" placeholder="Soyad">
+                            <label for="inputEmail4">@localizer["Soyadı"]</label>
+                            <input type="text" class="form-control" asp-for="LastName" placeholder="@localizer["Soyad"]">
                             <span asp-validation-for="LastName" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inputEmail4">Email</label>
-                            <input  type="text" class="form-control" asp-for="Email" placeholder="Email">
+                            <label for="inputEmail4">@localizer["Email"]</label>
+                            <input  type="text" class="form-control" asp-for="Email" placeholder="@localizer["Email"]">
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="inputAddress">Address</label>
+                            <label for="inputAddress">@localizer["Adres"]</label>
                             <textarea class="form-control" asp-for="Address" rows="3"></textarea>
                             <span asp-validation-for="Address" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-12">
                             <div class="custom-control custom-checkbox">
                                 <input asp-for="EmailComfirmed" type="checkbox" class="custom-control-input" >
-                                <label class="custom-control-label" asp-for="EmailComfirmed">Email Onayı</label>
+                                <label class="custom-control-label" asp-for="EmailComfirmed">@localizer["Email Onayı"]</label>
                             </div>
                         </div>
                         <div class="form-group col-md-12">
@@ -55,7 +55,7 @@
                             <hr>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Değişikleri Kaydet</button>
+                    <button type="submit" class="btn btn-primary">@localizer["Değişikleri Kaydet"]</button>
                 </form>
             </div>
         </div>

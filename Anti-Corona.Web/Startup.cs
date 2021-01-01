@@ -41,7 +41,20 @@ namespace Anti_Corona.Web
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
                 .AddDataAnnotationsLocalization();
 
-            
+
+            services.Configure<RequestLocalizationOptions>(option =>
+                {
+                    var supportedCultures = new List<CultureInfo>
+                    {
+                        new CultureInfo("tr"),
+                        new CultureInfo("en"),
+                    };
+                    option.DefaultRequestCulture = new RequestCulture("tr");
+                    option.SupportedCultures = supportedCultures;
+                    option.SupportedUICultures = supportedCultures;
+                }
+            );
+
 
             services.AddControllersWithViews();
             services.AddDbContext<ACContext>(options =>
@@ -127,13 +140,16 @@ namespace Anti_Corona.Web
             app.UseAuthentication();
             app.UseAuthorization();
 
-            var supportedCultures = new[] { "en", "tr"};
+
+            app.UseRequestLocalization(app.ApplicationServices.GetRequiredService<IOptions<RequestLocalizationOptions>>().Value);
+
+            /*var supportedCultures = new[] { "tr", "en"};
             var localizationOptions = new RequestLocalizationOptions()
                 .SetDefaultCulture(supportedCultures[0])
                 .AddSupportedCultures(supportedCultures)
                 .AddSupportedUICultures(supportedCultures);
 
-            app.UseRequestLocalization(localizationOptions);
+            app.UseRequestLocalization(localizationOptions);*/
 
 
 

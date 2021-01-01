@@ -117,28 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Adı" xml:space="preserve">
-    <value>Name</value>
+  <data name="Adres" xml:space="preserve">
+    <value>Adress</value>
   </data>
-  <data name="Düzenle/Sil" xml:space="preserve">
-    <value>Edit/ Delete</value>
+  <data name="Anasayfa" xml:space="preserve">
+    <value>Home</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>E-Mail</value>
+    <value>E-mail</value>
   </data>
-  <data name="Kullanıcı Bilgileri" xml:space="preserve">
-    <value>User Information</value>
+  <data name="Fatura Detayları" xml:space="preserve">
+    <value>Invoice Details</value>
   </data>
-  <data name="Kullanıcılar" xml:space="preserve">
-    <value>User</value>
+  <data name="Sipariş" xml:space="preserve">
+    <value>Order</value>
   </data>
-  <data name="Rolü" xml:space="preserve">
-    <value>Role</value>
+  <data name="Sipariş Notları" xml:space="preserve">
+    <value>Order Notes</value>
   </data>
-  <data name="Soyadı" xml:space="preserve">
+  <data name="Sipariş Ver" xml:space="preserve">
+    <value>Give Order</value>
+  </data>
+  <data name="Siparişiniz" xml:space="preserve">
+    <value>Your Order</value>
+  </data>
+  <data name="Soyisim" xml:space="preserve">
     <value>Surname</value>
   </data>
-  <data name="Telefon Numarası" xml:space="preserve">
-    <value>Telephone Number</value>
+  <data name="Telefon" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="Toplam" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Ürünler" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="İsim" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Şehir" xml:space="preserve">
+    <value>City</value>
   </data>
 </root>

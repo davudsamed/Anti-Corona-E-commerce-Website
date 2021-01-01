@@ -117,28 +117,79 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Adı" xml:space="preserve">
-    <value>Name</value>
+  <data name="Anasayfa" xml:space="preserve">
+    <value>Anasayfa</value>
   </data>
-  <data name="Düzenle/Sil" xml:space="preserve">
-    <value>Edit/ Delete</value>
+  <data name="Anti Corona Mağaza" xml:space="preserve">
+    <value>Anti Corona Mağaza</value>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>E-Mail</value>
+  <data name="Beyaz" xml:space="preserve">
+    <value>Beyaz</value>
   </data>
-  <data name="Kullanıcı Bilgileri" xml:space="preserve">
-    <value>User Information</value>
+  <data name="Dezenfektanlar" xml:space="preserve">
+    <value>Dezenfektanlar</value>
   </data>
-  <data name="Kullanıcılar" xml:space="preserve">
-    <value>User</value>
+  <data name="Eldivenler" xml:space="preserve">
+    <value>Eldivenler</value>
   </data>
-  <data name="Rolü" xml:space="preserve">
-    <value>Role</value>
+  <data name="En düşük fiyat" xml:space="preserve">
+    <value>En düşük fiyat</value>
   </data>
-  <data name="Soyadı" xml:space="preserve">
-    <value>Surname</value>
+  <data name="En yeniler" xml:space="preserve">
+    <value>En yeniler</value>
   </data>
-  <data name="Telefon Numarası" xml:space="preserve">
-    <value>Telephone Number</value>
+  <data name="En yüksek fiyat" xml:space="preserve">
+    <value>En yüksek fiyat</value>
+  </data>
+  <data name="En çok beğenilenler" xml:space="preserve">
+    <value>En çok beğenilenler</value>
+  </data>
+  <data name="En çok değerlendirilenler" xml:space="preserve">
+    <value>En çok değerlendirilenler</value>
+  </data>
+  <data name="En çok satanlar" xml:space="preserve">
+    <value>En çok satanlar</value>
+  </data>
+  <data name="En Çok Tercih Edilen Ürünler" xml:space="preserve">
+    <value>En Çok Tercih Edilen Ürünler</value>
+  </data>
+  <data name="Fıyat" xml:space="preserve">
+    <value>Fıyat</value>
+  </data>
+  <data name="Gelişmiş sıralama" xml:space="preserve">
+    <value>Gelişmiş sıralama</value>
+  </data>
+  <data name="Gri" xml:space="preserve">
+    <value>Gri</value>
+  </data>
+  <data name="Kategoriler" xml:space="preserve">
+    <value>Kategoriler</value>
+  </data>
+  <data name="Kırmızı" xml:space="preserve">
+    <value>Kırmızı</value>
+  </data>
+  <data name="Maskeler" xml:space="preserve">
+    <value>Maskeler</value>
+  </data>
+  <data name="Mavi" xml:space="preserve">
+    <value>Mavi</value>
+  </data>
+  <data name="Mağaza" xml:space="preserve">
+    <value>Mağaza</value>
+  </data>
+  <data name="Renkler" xml:space="preserve">
+    <value>Renkler</value>
+  </data>
+  <data name="Siperlikler" xml:space="preserve">
+    <value>Siperlikler</value>
+  </data>
+  <data name="Siyah" xml:space="preserve">
+    <value>Siyah</value>
+  </data>
+  <data name="Yeşil" xml:space="preserve">
+    <value>Yeşil</value>
+  </data>
+  <data name="Ürün bulundu" xml:space="preserve">
+    <value>Ürün bulundu</value>
   </data>
 </root>
