@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
 }
 @model IndexViewModel
@@ -81,10 +80,12 @@
                 <div class="featured__controls">
                     <ul>
                         <li class="active" data-filter="*">@localizer["Tümü"]</li>
-                        <li data-filter=".orange">@localizer["Maskeler"]</li>
-                        <li data-filter=".fresh-meat">@localizer["Dezenfektanlar"]</li>
-                        <li data-filter=".vegetables">@localizer["Eldivenler"]</li>
-                        <li data-filter=".fastfood">@localizer["Siperlikler"]</li>
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                            
+                            <li data-filter=".@item.Name">@localizer[$"{@item.Name}"]</li>
+                        }
+                      
                     </ul>
                 </div>
             </div>
@@ -92,7 +93,7 @@
         <div class="row featured__filter">
             @foreach (var item in Model.products)
             {
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+                <div class="col-lg-3 col-md-4 col-sm-6 mix @item.Category.Name">
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="/img/featured/@item.Images[0].ImageUrl">
                             <ul class="featured__item__pic__hover">
@@ -116,7 +117,6 @@
 @section Scripts{
     <script src="~/js/jquery-3.3.1.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/jquery.nice-select.min.js"></script>
     <script src="~/js/jquery-ui.min.js"></script>
     <script src="~/js/jquery.slicknav.js"></script>
     <script src="~/js/mixitup.min.js"></script>

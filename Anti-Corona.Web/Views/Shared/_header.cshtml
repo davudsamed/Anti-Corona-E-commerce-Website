@@ -6,36 +6,21 @@
     var cultureList = LocOptions.Value.SupportedUICultures.Select(x => new SelectListItem { Value = x.Name, Text = x.Name }).ToList();
     var returnUrl = string.IsNullOrWhiteSpace(Context.Request.Path) ? "~/" : $"~{Context.Request.Path}{Context.Request.QueryString}";
 }
-<header class="header">
-    <div class="header__top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="header__top__left">
-                        <ul>
-                            <li><i class="fa fa-envelope"></i>DavudOzgurSelim@sakarya.edu.tr</li>
-                            <li>@localizer["₺99 Üzeri Ücretsiz Kargo!"]</li>
-                        </ul>
-                    </div>
+<header >
+    <div style="background: #F5F5F5">
+        <div class="container" >
+            <div class="row py-2">
+                <div class="col-lg-6 col-md-6 d-flex">
+                    <div class="mr-3"><i class="fa fa-envelope"></i>DavudOzgurSelim@sakarya.edu.tr</div>
+                    <div>@localizer["₺99 Üzeri Ücretsiz Kargo!"]</div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="header__top__right">
-                        <div class="header__top__right__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                        </div>
-                        <div class="header__top__right__language">
-                            <img src="/img/language.png" alt="">
-                            @*<div>@localizer["Türkçe"]</div>
-                            <span class="arrow_carrot-down"></span>*@
-                            <div >
-                                <form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
-                                    <select name="Culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" onchange="this.form.submit();"></select>
-                                </form>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-md-6 d-flex justify-content-end">
+                    <div class="ml-3">
+                        <form asp-action="CultureManagement" asp-controller="Home" method="post" asp-route-returnUrl="@returnUrl">
+                            <select name="Culture" asp-for="@culture.RequestCulture.UICulture.Name" asp-items="cultureList" class="form-control form-control-sm" onchange="this.form.submit();"></select>
+                        </form>
+                    </div>
+                    <div class="ml-3">
                         @if (User.Identity.IsAuthenticated)
                         {
                             <div class="header__top__right__auth mr-2">
@@ -52,8 +37,8 @@
                                 <a href="/account/register"><i class="fa fa-user"></i>@localizer["Kayıt Ol"]</a>
                             </div>
                         }
-
                     </div>
+
                 </div>
             </div>
         </div>
