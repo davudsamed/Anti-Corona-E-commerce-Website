@@ -66,6 +66,27 @@ namespace Anti_Corona.Data.Concrete.EFCore
             }
         }
 
-       
+        public List<Product> SearchProducts(double? minimumPrice, double? maximumPrice, string categoryName)
+        {
+            using (var context=new AntiCoronaContext())
+            {
+                var products = context.Products.Include(i => i.Category).Include(i => i.Images).ToList();
+                if (!string.IsNullOrEmpty(categoryName))
+                {
+                    products = context.Products.Include(i => i.Category).Include(i => i.Images).Where(i=>i.Category.Name==categoryName).ToList();
+                }
+                if (minimumPrice.HasValue)
+                {
+                    products = products.Where(x => x.Price >= minimumPrice.Value).ToList();
+                }
+
+                if (maximumPrice.HasValue)
+                {
+                    products = products.Where(x => x.Price <= maximumPrice.Value).ToList();
+                }
+
+                return products;
+            }
+        }
     }
 }

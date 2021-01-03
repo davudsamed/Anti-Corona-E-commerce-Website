@@ -2,6 +2,7 @@
 using Anti_Corona.Entity;
 using Anti_Corona.Web.Identity;
 using Anti_Corona.Web.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,8 @@ using System.Threading.Tasks;
 
 namespace Anti_Corona.Web.Controllers
 {
+    [Authorize(Roles = "admin")]
+
     public class AdminController : Controller
     {
         private UserManager<User> _userManager;
@@ -19,8 +22,6 @@ namespace Anti_Corona.Web.Controllers
         private IOrderService _orderService;
         private ICategoryService _categoryService;
         private IBrandService _brandService;
-        private object category;
-
         public AdminController(UserManager<User> userManager,
                                RoleManager<IdentityRole> roleManager,
                                IProductService productService,

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Anti_Corona.Web.Migrations
 {
     [DbContext(typeof(ACContext))]
-    [Migration("20210101195819_Initial")]
-    partial class Initial
+    [Migration("20210102131153_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

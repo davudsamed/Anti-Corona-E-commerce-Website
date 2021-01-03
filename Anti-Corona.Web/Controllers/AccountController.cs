@@ -18,12 +18,12 @@ namespace Anti_Corona.Web.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-        public IActionResult Login(string ReturnUrl = null)
+        public IActionResult Login(string URL = null)
         {
             
             return View(new LoginModel()
             {
-                ReturnUrl = ReturnUrl
+                URL = URL
             });
         }
         [HttpPost]
@@ -40,9 +40,14 @@ namespace Anti_Corona.Web.Controllers
                 ModelState.AddModelError("", "No account created by mail");
             }
             var result = await _signInManager.PasswordSignInAsync(user, model.Password,false,false);
+            var isAdmin = _userManager.IsInRoleAsync(user, "admin");
             if (result.Succeeded)
             {
-                return Redirect(model.ReturnUrl ?? "~/");
+                if (isAdmin.Result)
+                {
+                    return Redirect("/admin");
+                }
+                return Redirect(model.URL ?? "~/");
             }
             ModelState.AddModelError("", "Username or password is incorrect");
             return View(model);
@@ -77,6 +82,10 @@ namespace Anti_Corona.Web.Controllers
         {
             await _signInManager.SignOutAsync();
             return Redirect("~/");
+        }
+        public IActionResult AccessDenied()
+        {
+            return View();
         }
     }
 }

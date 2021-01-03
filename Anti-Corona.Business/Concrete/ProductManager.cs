@@ -63,6 +63,9 @@ namespace Anti_Corona.Business.Concrete
             return _productRepository.GetProductCount();
         }
 
-      
+        public List<Product> SearchProducts(double? minimumPrice, double? maximumPrice, string categoryName)
+        {
+            return _productRepository.SearchProducts(minimumPrice, maximumPrice,categoryName);
+        }
     }
 }

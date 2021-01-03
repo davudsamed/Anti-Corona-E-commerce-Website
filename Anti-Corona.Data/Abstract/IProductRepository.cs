@@ -14,6 +14,7 @@ namespace Anti_Corona.Data.Abstract
         Product GetProductDetails(int id);
         List<Product> GetHomePageProducts();
         int GetProductCount();
+        List<Product> SearchProducts(double? minimumPrice, double? maximumPrice, string categoryName);
 
     }
     
