@@ -126,6 +126,9 @@
   <data name="Beyaz" xml:space="preserve">
     <value>White</value>
   </data>
+  <data name="Bul" xml:space="preserve">
+    <value>Search</value>
+  </data>
   <data name="Dezenfektanlar" xml:space="preserve">
     <value>Disinfectants</value>
   </data>

@@ -11,6 +11,8 @@ namespace Anti_Corona.Web.Models
     {
         public  List<PopularProductModel> mostPopularProducts { get; set; }
         public List<ProductModel> products { get; set; }
+        public double? minimumPrice { get; set; }
+        public double? maximumPrice { get; set; }
 
     }
     
